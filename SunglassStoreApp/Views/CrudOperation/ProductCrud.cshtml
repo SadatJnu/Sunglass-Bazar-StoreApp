@@ -1,0 +1,586 @@
+﻿
+<div ng-controller="sunglassCtrl">
+    <form class="form1">
+        <div class="container" ng-init="showProduct();">
+            <br /><br />
+
+            <div class="addAndSearch">
+                <button class="glyphicon glyphicon-plus btn-group-sm" style="font-size:14px;font-weight:300;background-color: cadetblue;color: bisque;line-height:2em;border-radius:23px 1px" data-toggle="modal" data-target="#myModal">
+                    &nbsp;Add New Product
+                </button>
+                <span class="glyphicon glyphicon-search" style="position:absolute; margin-left:28.5em; font-size:1.5em;top:.5em;"></span>
+                <input type="text" id="txtAny" class="searchTextArea" ng-model="searchAny" placeholder="Search here" style="background-color:#beccca;margin-left: 27%;height:1.8em; width:10em; font-size:1.5em; text-align:center" />
+            </div>
+
+            <div style="margin:20px 0px 20px 0px;">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr style="background-color:#19fca9;color:white;">
+                            <th class="col-md-1" style="cursor:pointer;font-size:12px" ng-click="predicate='ProductID';reverse=!reverse">Product ID</th>
+                            <th class="col-md-1" style="cursor:pointer;font-size:12px" ng-click="predicate='Name';reverse=!reverse">Name</th>
+                            <th class="col-md-1" style="cursor:pointer;font-size:12px">Company Name</th>
+                            <th class="col-md-1" style="cursor:pointer;font-size:12px">Picture</th>
+                            <th class="col-md-1" style="cursor:pointer;font-size:12px">Category Name</th>
+                            <th class="col-md-1" style="cursor:pointer;font-size:12px">SubCategory Name</th>
+                            <th class="col-md-1" style="cursor:pointer;font-size:12px">Quantity Per Unit</th>
+                            <th class="col-md-1" style="cursor:pointer;font-size:12px" ng-click="predicate='UnitPrice';reverse=!reverse">Unit Price</th>
+                            <th class="col-md-1" style="cursor:pointer;font-size:12px">Unit In Stock</th>
+                            <th class="col-md-1" style="cursor:pointer;font-size:12px">Product Available</th>
+                            <th class="col-md-1" style="cursor:pointer;font-size:12px">Short Description</th>
+                            <th class="col-md-2"></th>
+                        </tr>
+                    </thead>
+                    <tbody dir-paginate="pro in productView |filter:searchAny | orderBy:predicate:reverse|itemsPerPage:3">
+                        @*|customFilters:search|filter:searchAny|orderBy:predicate:reverse|itemsPerPage:3*@
+                        <tr>
+                            <td class="col-md-1"> {{pro.ProductID}}</td>
+                            <td class="col-md-1">{{pro.Name}}</td>
+                            <td class="col-md-1">{{pro.CompanyName}}</td>
+                            <td class="col-md-1">{{pro.Picture1}}</td>
+                            <td class="col-md-1">{{pro.CategoryName}}</td>
+                            <td class="col-md-1">{{pro.SubCategoryName}}</td>
+                            <td class="col-md-1">{{pro.QuantityPerUnit}}</td>
+                            <td class="col-md-1">{{pro.UnitPrice}}</td>
+                            <td class="col-md-1">{{pro.UnitInStock}}</td>
+                            <td class="col-md-1">{{pro.ProductAvailable}}</td>
+                            <td class="col-md-1">{{pro.ShortDescription}}</td>
+                            <td class="col-md-2">
+                                <button type="button" class="btn btn-success glyphicon glyphicon-edit" data-toggle="modal" ng-click="searchProduct();" data-target="#myModalEdit">Edit</button>
+                                <button type="button" class="btn btn-danger glyphicon glyphicon-trash" ng-click="deleteProduct();">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-center">
+                <dir-pagination-controls max-size="3" direction-links="true" boundary-links="true"></dir-pagination-controls>
+            </div>
+
+            <!--Use of Modal(Pop up Dialogue box) for Add New Data-->
+            <!---------------------------------- modal for Add ---------------------------------->
+            <div class="modal fade" tabindex="-1" id="myModal" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Add new Product</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-horizontal">
+                                <!--------------------------Product Name (Add)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.Name.$invalid &&
+                                 form1.Name.$dirty}">
+                                    <label for="input1" class="col-sm-3 control-label">Product Name</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="input1" name="Name" ng-model="product.Name" placeholder="Product Name" ng-maxlength="20" ng-minlength="1" required>
+                                        <span class="help-block has-error">
+                                            <span ng-show="form1.Name.$error.required">Please Type Product Name </span>
+                                            <span ng-show="form1.Name.$error.minlength">Product name is must be at least 1 charecters in length</span>
+                                            <span ng-show="form1.Name.$error.maxlength">Product name is can not exceed 20 charecters in length</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--------------------------SupplierID (Add)  ------------------------->
+                                <div class="form-group" ng-init="getallSupplier();" ng-class="{'has-error':form1.SupplierID.$invalid &&
+                                 form1.SupplierID.$dirty}">
+                                    <label for="input2" class="col-sm-3 control-label">Company Name</label>@*Reference ID Supplier ID*@
+                                    <div class="col-sm-9">
+                                        <select ng-model="product.SupplierID">
+                                            <option label="Select Company"></option>
+                                            <option ng-repeat="sup in suppliers" value="{{sup.SupplierID}}" ng-selected="{{sup.Selected==true}}">{{sup.CompanyName}}</option>
+                                        </select>
+                                        <span class="help-block has-error">
+                                            <span ng-show="form1.SupplierID.$error.required">Please Select a Company</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--------------------------CategoryID (Add)  ------------------------->
+                                <div class="form-group" ng-init="getallCategory();" ng-class="{'has-error':form1.CategoryID.$invalid &&
+                                 form1.CategoryID.$dirty}">
+                                    <label for="input3" class="col-sm-3 control-label">Category</label>@*Origin ID CategoryID*@
+                                    <div class="col-sm-9">
+                                        <select ng-model="product.CategoryID">
+                                            <option label="Select Category"></option>
+                                            <option ng-repeat="cat in categories" value="{{cat.CategoryID}}" ng-selected="{{cat.Selected==true}}">{{cat.Name}}</option>
+                                        </select>
+                                        <span class="help-block has-error">
+                                            <span ng-show="form1.CategoryID.$error.required">Please Select a Category</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--------------------------SubCategoryID (Add)  ------------------------->
+                                <div class="form-group" ng-init="getallSubCategory();" ng-class="{'has-error':form1.SubCategoryID.$invalid &&
+                                 form1.SubCategoryID.$dirty}">
+                                    <label for="input4" class="col-sm-3 control-label">Sub Category</label>@*Origin SubCategoryID*@
+                                    <div class="col-sm-9">
+                                        <select ng-model="product.SubCategoryID">
+                                            <option label="Select Sub Category"></option>
+                                            <option ng-repeat="subcat in subCategories" value="{{subcat.SubCategoryID}}" ng-selected="{{subcat.Selected==true}}">{{subcat.Name}}</option>
+                                        </select>
+                                        <span class="help-block has-error">
+                                            <span ng-show="form1.SubCategoryID.$error.required">Please Select a Sub Category</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--------------------------QuantityPerUnit (Add)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.QuantityPerUnit.$invalid &&
+                                 form1.QuantityPerUnit.$dirty}">
+                                    <label for="input5" class="col-sm-3 control-label">Quantity Per Unit</label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input5" name="QuantityPerUnit" ng-model="product.QuantityPerUnit" placeholder="QuantityPerUnit" ng-maxlength="20" ng-minlength="1" required>
+                                        <span class="help-block has-error">
+                                            <span ng-show="form1.QuantityPerUnit.$error.required">Please Type QuantityPerUnit</span>
+                                            <span ng-show="form1.QuantityPerUnit.$error.minlength">QuantityPerUnit is must be at least 1 charecters in length</span>
+                                            <span ng-show="form1.QuantityPerUnit.$error.maxlength">QuantityPerUnit is can not exceed 20 charecters in length</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--------------------------UnitPrice (Add)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.UnitPrice.$invalid &&
+                                 form1.UnitPrice.$dirty}">
+                                    <label for="input6" class="col-sm-3 control-label">Unit Price </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input6" name="UnitPrice" ng-model="product.UnitPrice" placeholder="Unit Price" ng-maxlength="20" ng-minlength="1" required>
+                                        <span class="help-block has-error">
+                                            <span ng-show="form1.UnitPrice.$error.required">Please Type UnitPrice </span>
+                                            <span ng-show="form1.UnitPrice.$error.minlength">UnitPrice is must be at least 1 charecters in length</span>
+                                            <span ng-show="form1.UnitPrice.$error.maxlength">UnitPrice is can not exceed 20 charecters in length</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--------------------------OldPrice (Add)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.OldPrice.$invalid &&
+                                 form1.OldPrice.$dirty}">
+                                    <label for="input7" class="col-sm-3 control-label">Old Price </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input7" name="OldPrice" ng-model="product.OldPrice" placeholder="Old Price" ng-maxlength="20" ng-minlength="1">                                       
+                                    </div>
+                                </div>
+                                <!--------------------------UnitWeight (Add)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.UnitWeight.$invalid &&
+                                 form1.UnitWeight.$dirty}">
+                                    <label for="input8" class="col-sm-3 control-label">Unit Weight</label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input8" name="UnitWeight" ng-model="product.UnitWeight" placeholder="Unit Weight" ng-maxlength="20" ng-minlength="1">
+                                    </div>
+                                </div><!--------------------------Size (Add)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.Size.$invalid &&
+                                  form1.Size.$dirty}">
+                                    <label for="input9" class="col-sm-3 control-label">Size </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input9" name="Size" ng-model="product.Size" placeholder="Size" ng-maxlength="20" ng-minlength="1">                                       
+                                    </div>
+                                </div>
+                                <!--------------------------Discount (Add)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.Discount.$invalid &&
+                                 form1.Discount.$dirty}">
+                                    <label for="input10" class="col-sm-3 control-label">Discount </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input10" name="Discount" ng-model="product.Discount" placeholder="Discount" ng-maxlength="20" ng-minlength="1">                                        
+                                    </div>
+                                </div>
+                                <!--------------------------UnitInStock (Add)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.UnitInStock.$invalid &&
+                                 form1.UnitInStock.$dirty}">
+                                    <label for="input11" class="col-sm-3 control-label">Unit In Stock </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input11" name="UnitInStock" ng-model="product.UnitInStock" placeholder="UnitInStock" ng-maxlength="20" ng-minlength="1" required>
+                                        <span class="help-block has-error">
+                                            <span ng-show="form1.UnitInStock.$error.required">Please Type Unit In Stock </span>
+                                            <span ng-show="form1.UnitInStock.$error.minlength">UnitInStock is must be at least 1 charecters in length</span>
+                                            <span ng-show="form1.UnitInStock.$error.maxlength">UnitInStock is can not exceed 20 charecters in length</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--------------------------UnitOnOrder (Add)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.UnitOnOrder.$invalid &&
+                                 form1.UnitOnOrder.$dirty}">
+                                    <label for="input12" class="col-sm-3 control-label">UnitOnOrder </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input12" name="UnitOnOrder" ng-model="product.UnitOnOrder" placeholder="UnitOnOrder" ng-maxlength="20" ng-minlength="1" required>
+                                        <span class="help-block has-error">
+                                            <span ng-show="form1.UnitOnOrder.$error.required">Please Type UnitOnOrder </span>
+                                            <span ng-show="form1.UnitOnOrder.$error.minlength">UnitOnOrder is must be at least 1 charecters in length</span>
+                                            <span ng-show="form1.UnitOnOrder.$error.maxlength">UnitOnOrder is can not exceed 20 charecters in length</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--------------------------ProductAvailable (Add)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.ProductAvailable.$invalid &&
+                                 form1.ProductAvailable.$dirty}">
+                                    <label for="input13" class="col-sm-3 control-label">ProductAvailable </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input13" name="ProductAvailable" ng-model="product.ProductAvailable" placeholder="ProductAvailable" ng-maxlength="20" ng-minlength="1">                                       
+                                    </div>
+                                </div>
+                                <!--------------------------ImageURL (Add)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.ImageURL.$invalid &&
+                                 form1.ImageURL.$dirty}">
+                                    <label for="input14" class="col-sm-3 control-label">ImageURL</label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input14" name="ImageURL" ng-model="product.ImageURL" placeholder="ImageURL" ng-maxlength="500" ng-minlength="1">                                       
+                                    </div>
+                                </div>
+                                <!--------------------------AltText (Add)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.AltText.$invalid &&
+                                 form1.AltText.$dirty}">
+                                    <label for="input15" class="col-sm-3 control-label">AltText </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input15" name="AltText" ng-model="product.AltText" placeholder="AltText" ng-maxlength="500" ng-minlength="1">                                       
+                                    </div>
+                                </div>
+                                <!--------------------------AddBadge (Add)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.AddBadge.$invalid &&
+                                 form1.AddBadge.$dirty}">
+                                    <label for="input16" class="col-sm-3 control-label">AddBadge </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input16" name="AddBadge" ng-model="product.AddBadge" placeholder="AddBadge" ng-maxlength="20" ng-minlength="1">                                      
+                                    </div>
+                                </div>
+                                <!--------------------------OfferTitle (Add)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.OfferTitle.$invalid &&
+                                 form1.OfferTitle.$dirty}">
+                                    <label for="input17" class="col-sm-3 control-label">OfferTitle </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input17" name="OfferTitle" ng-model="product.OfferTitle" placeholder="OfferTitle" ng-maxlength="200" ng-minlength="1">                                       
+                                    </div>
+                                </div>
+                                <!--------------------------OfferBadgeClass (Add)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.OfferBadgeClass.$invalid &&
+                                 form1.OfferBadgeClass.$dirty}">
+                                    <label for="input18" class="col-sm-3 control-label">OfferBadgeClass </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input18" name="OfferBadgeClass" ng-model="product.OfferBadgeClass" placeholder="OfferBadgeClass" ng-maxlength="300" ng-minlength="1">                                       
+                                    </div>
+                                </div>
+                                <!--------------------------ShortDescription (Add)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.ShortDescription.$invalid &&
+                                 form1.ShortDescription.$dirty}">
+                                    <label for="input19" class="col-sm-3 control-label">ShortDescription </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input19" name="ShortDescription" ng-model="product.ShortDescription" placeholder="ShortDescription" ng-maxlength="1000" ng-minlength="1">                                       
+                                    </div>
+                                </div>
+                                <!--------------------------LongDescription (Add)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.LongDescription.$invalid &&
+                                 form1.LongDescription.$dirty}">
+                                    <label for="input20" class="col-sm-3 control-label">LongDescription </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input20" name="LongDescription" ng-model="product.LongDescription" placeholder="LongDescription" ng-maxlength="1000" ng-minlength="1">                                        
+                                    </div>
+                                </div>
+                                <!-------------------------- Picture1 (Add)  ------------------------->
+                                <div class="form-group">
+                                    <label for="imginp1" class="col-sm-3 control-label">Photo 1</label>
+                                    <div class="col-sm-9">
+                                        <img id="pic1" ng-src="data:image/png;base64,{{product.Picture1}}" alt="" width="100" height="100" style="margin-left:200px;" />
+                                        <input type="file" class="form-control" id="imginp1" onchange="readURL(this,'pic1');" name="Picture1" ng-model="product.Picture1">
+                                    </div>
+                                </div>
+                                <!-------------------------- Picture2 (Add)  ------------------------->
+                                <div class="form-group">
+                                    <label for="imginp2" class="col-sm-3 control-label">Photo 2</label>
+                                    <div class="col-sm-9">
+                                        <img id="pic2" ng-src="data:image/png;base64,{{product.Picture2}}" alt="" width="100" height="100" style="margin-left:200px;" />
+                                        <input type="file" class="form-control" id="imginp2" onchange="readURL(this,'pic2');" name="Picture2" ng-model="product.Picture2">
+                                    </div>
+                                </div>
+                                <!-------------------------- Picture3 (Add)  ------------------------->
+                                <div class="form-group">
+                                    <label for="imginp3" class="col-sm-3 control-label">Photo 3</label>
+                                    <div class="col-sm-9">
+                                        <img id="pic3" ng-src="data:image/png;base64,{{product.Picture3}}" alt="" width="100" height="100" style="margin-left:200px;" />
+                                        <input type="file" class="form-control" id="imginp3" onchange="readURL(this,'pic3');" name="Picture3" ng-model="product.Picture3">
+                                    </div>
+                                </div>
+                                <!-------------------------- Picture4 (Add)  ------------------------->
+                                <div class="form-group">
+                                    <label for="imginp4" class="col-sm-3 control-label">Photo 4</label>
+                                    <div class="col-sm-9">
+                                        <img id="pic4" ng-src="data:image/png;base64,{{product.Picture4}}" alt="" width="100" height="100" style="margin-left:200px;" />
+                                        <input type="file" class="form-control" id="imginp4" onchange="readURL(this,'pic4');" name="Picture4" ng-model="product.Picture4">
+                                    </div>
+                                </div>
+                                <!--------------------------Note (Add)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.Note.$invalid &&
+                                 form1.Note.$dirty}">
+                                    <label for="input21" class="col-sm-3 control-label">Note </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input21" name="Note" ng-model="product.Note" placeholder="Note" ng-maxlength="250" ng-minlength="1">                                       
+                                    </div>
+                                </div>
+                            </div><!--// form horizpntal-->
+                        </div> <!--// Main modal body-->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger glyphicon glyphicon-trash" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-success glyphicon glyphicon-save" data-dismiss="modal" ng-click="saveProduct();" ng-disabled="form1.$invalid">Save</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+            <!--Use of Modal(Pop up Dialogue box) for  Edit Exsiting Data-->
+            <!---------------------------------- Modal for edit ---------------------------------->
+            <div class="modal fade" tabindex="-1" id="myModalEdit" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" style="background-color:#e4f8f2">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Edit and Update existing Product</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-horizontal">
+                                <!--------------------------Product Name (Edit & Update)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.Name.$invalid &&
+                                 form1.Name.$dirty}">
+                                    <label for="input1" class="col-sm-3 control-label">Product Name</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="input1" name="Name" ng-model="product.Name" placeholder="Product Name" ng-maxlength="20" ng-minlength="1" required>
+                                        <span class="help-block has-error">
+                                            <span ng-show="form1.Name.$error.required">Please Type Product Name </span>
+                                            <span ng-show="form1.Name.$error.minlength">Product name is must be at least 1 charecters in length</span>
+                                            <span ng-show="form1.Name.$error.maxlength">Product name is can not exceed 20 charecters in length</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--------------------------SupplierID (Edit & Update)  ------------------------->
+                                <div class="form-group" ng-init="getallSupplier();" ng-class="{'has-error':form1.SupplierID.$invalid &&
+                                 form1.SupplierID.$dirty}">
+                                    <label for="input2" class="col-sm-3 control-label">Company Name</label>@*Reference ID Supplier ID*@
+                                    <div class="col-sm-9">
+                                        <select ng-model="product.SupplierID">
+                                            <option label="Select Company"></option>
+                                            <option ng-repeat="sup in suppliers" value="{{sup.SupplierID}}" ng-selected="{{sup.Selected==true}}">{{sup.CompanyName}}</option>
+                                        </select>
+                                        <span class="help-block has-error">
+                                            <span ng-show="form1.SupplierID.$error.required">Please Select a Company</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--------------------------CategoryID (Edit & Update)  ------------------------->
+                                <div class="form-group" ng-init="getallCategory();" ng-class="{'has-error':form1.CategoryID.$invalid &&
+                                 form1.CategoryID.$dirty}">
+                                    <label for="input3" class="col-sm-3 control-label">Category</label>@*Origin ID CategoryID*@
+                                    <div class="col-sm-9">
+                                        <select ng-model="product.CategoryID">
+                                            <option label="Select Category"></option>
+                                            <option ng-repeat="cat in categories" value="{{cat.CategoryID}}" ng-selected="{{cat.Selected==true}}">{{cat.Name}}</option>
+                                        </select>
+                                        <span class="help-block has-error">
+                                            <span ng-show="form1.CategoryID.$error.required">Please Select a Category</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--------------------------SubCategoryID (Edit & Update)  ------------------------->
+                                <div class="form-group" ng-init="getallSubCategory();" ng-class="{'has-error':form1.SubCategoryID.$invalid &&
+                                 form1.SubCategoryID.$dirty}">
+                                    <label for="input4" class="col-sm-3 control-label">Sub Category</label>@*Origin SubCategoryID*@
+                                    <div class="col-sm-9">
+                                        <select ng-model="product.SubCategoryID">
+                                            <option label="Select Sub Category"></option>
+                                            <option ng-repeat="subcat in subCategories" value="{{subcat.SubCategoryID}}" ng-selected="{{subcat.Selected==true}}">{{subcat.Name}}</option>
+                                        </select>
+                                        <span class="help-block has-error">
+                                            <span ng-show="form1.SubCategoryID.$error.required">Please Select a Sub Category</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--------------------------QuantityPerUnit (Edit & Update)  ------------------------->
+                                <div class="form-group">
+                                    <label for="input5" class="col-sm-3 control-label">Quantity Per Unit</label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control" id="input5" name="QuantityPerUnit" ng-model="product.QuantityPerUnit" placeholder="QuantityPerUnit" ng-maxlength="20" ng-minlength="1" required>
+                                        <span class="help-block has-error">
+                                            <span ng-show="form1.QuantityPerUnit.$error.required">Please Type QuantityPerUnit</span>
+                                            <span ng-show="form1.QuantityPerUnit.$error.minlength">QuantityPerUnit is must be at least 1 charecters in length</span>
+                                            <span ng-show="form1.QuantityPerUnit.$error.maxlength">QuantityPerUnit is can not exceed 20 charecters in length</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--------------------------UnitPrice (Edit & Update)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.UnitPrice.$invalid &&
+                                 form1.UnitPrice.$dirty}">
+                                    <label for="input6" class="col-sm-3 control-label">Unit Price </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input6" name="UnitPrice" ng-model="product.UnitPrice" placeholder="Unit Price" ng-maxlength="20" ng-minlength="1" required>
+                                        <span class="help-block has-error">
+                                            <span ng-show="form1.UnitPrice.$error.required">Please Type UnitPrice </span>
+                                            <span ng-show="form1.UnitPrice.$error.minlength">UnitPrice is must be at least 1 charecters in length</span>
+                                            <span ng-show="form1.UnitPrice.$error.maxlength">UnitPrice is can not exceed 20 charecters in length</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--------------------------OldPrice (Edit & Update)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.OldPrice.$invalid &&
+                                 form1.OldPrice.$dirty}">
+                                    <label for="input7" class="col-sm-3 control-label">Old Price </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input7" name="OldPrice" ng-model="product.OldPrice" placeholder="Old Price" ng-maxlength="20" ng-minlength="1" >                                       
+                                    </div>
+                                </div>
+                                <!--------------------------UnitWeight (Edit & Update)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.UnitWeight.$invalid &&
+                                 form1.UnitWeight.$dirty}">
+                                    <label for="input8" class="col-sm-3 control-label">Unit Weight</label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input8" name="UnitWeight" ng-model="product.UnitWeight" placeholder="Unit Weight" ng-maxlength="20" ng-minlength="1" >                                       
+                                    </div>
+                                </div><!--------------------------Size (Edit & Update)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.Size.$invalid &&
+                                  form1.Size.$dirty}">
+                                    <label for="input9" class="col-sm-3 control-label">Size </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input9" name="Size" ng-model="product.Size" placeholder="Size" ng-maxlength="20" ng-minlength="1" >                                       
+                                    </div>
+                                </div>
+                                <!--------------------------Discount (Edit & Update)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.Discount.$invalid &&
+                                 form1.Discount.$dirty}">
+                                    <label for="input10" class="col-sm-3 control-label">Discount </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input10" name="Discount" ng-model="product.Discount" placeholder="Discount" ng-maxlength="20" ng-minlength="1" >                                       
+                                    </div>
+                                </div>
+                                <!--------------------------UnitInStock (Edit & Update)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.UnitInStock.$invalid &&
+                                 form1.UnitInStock.$dirty}">
+                                    <label for="input11" class="col-sm-3 control-label">Unit In Stock </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input11" name="UnitInStock" ng-model="product.UnitInStock" placeholder="UnitInStock" ng-maxlength="20" ng-minlength="1" required>
+                                        <span class="help-block has-error">
+                                            <span ng-show="form1.UnitInStock.$error.required">Please Type Unit In Stock </span>
+                                            <span ng-show="form1.UnitInStock.$error.minlength">UnitInStock is must be at least 1 charecters in length</span>
+                                            <span ng-show="form1.UnitInStock.$error.maxlength">UnitInStock is can not exceed 20 charecters in length</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--------------------------UnitOnOrder (Edit & Update)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.UnitOnOrder.$invalid &&
+                                 form1.UnitOnOrder.$dirty}">
+                                    <label for="input12" class="col-sm-3 control-label">UnitOnOrder </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input12" name="UnitOnOrder" ng-model="product.UnitOnOrder" placeholder="UnitOnOrder" ng-maxlength="20" ng-minlength="1" required>
+                                        <span class="help-block has-error">
+                                            <span ng-show="form1.UnitOnOrder.$error.required">Please Type UnitOnOrder </span>
+                                            <span ng-show="form1.UnitOnOrder.$error.minlength">UnitOnOrder is must be at least 1 charecters in length</span>
+                                            <span ng-show="form1.UnitOnOrder.$error.maxlength">UnitOnOrder is can not exceed 20 charecters in length</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--------------------------ProductAvailable (Edit & Update)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.ProductAvailable.$invalid &&
+                                 form1.ProductAvailable.$dirty}">
+                                    <label for="input13" class="col-sm-3 control-label">ProductAvailable </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input13" name="ProductAvailable" ng-model="product.ProductAvailable" placeholder="ProductAvailable" ng-maxlength="20" ng-minlength="1" >                                       
+                                    </div>
+                                </div>
+                                <!--------------------------ImageURL (Edit & Update)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.ImageURL.$invalid &&
+                                 form1.ImageURL.$dirty}">
+                                    <label for="input14" class="col-sm-3 control-label">ImageURL</label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input14" name="ImageURL" ng-model="product.ImageURL" placeholder="ImageURL" ng-maxlength="500" ng-minlength="1" >                                       
+                                    </div>
+                                </div>
+                                <!--------------------------AltText (Edit & Update)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.AltText.$invalid &&
+                                 form1.AltText.$dirty}">
+                                    <label for="input15" class="col-sm-3 control-label">AltText </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input15" name="AltText" ng-model="product.AltText" placeholder="AltText" ng-maxlength="500" ng-minlength="1" >                                      
+                                    </div>
+                                </div>
+                                <!--------------------------AddBadge (Edit & Update)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.AddBadge.$invalid &&
+                                 form1.AddBadge.$dirty}">
+                                    <label for="input16" class="col-sm-3 control-label">AddBadge </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input16" name="AddBadge" ng-model="product.AddBadge" placeholder="AddBadge" ng-maxlength="300" ng-minlength="1" >                                       
+                                    </div>
+                                </div>
+                                <!--------------------------OfferTitle (Edit & Update)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.OfferTitle.$invalid &&
+                                 form1.OfferTitle.$dirty}">
+                                    <label for="input17" class="col-sm-3 control-label">OfferTitle </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input17" name="OfferTitle" ng-model="product.OfferTitle" placeholder="OfferTitle" ng-maxlength="200" ng-minlength="1" >                                       
+                                    </div>
+                                </div>
+                                <!--------------------------OfferBadgeClass (Edit & Update)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.OfferBadgeClass.$invalid &&
+                                 form1.OfferBadgeClass.$dirty}">
+                                    <label for="input18" class="col-sm-3 control-label">OfferBadgeClass </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input18" name="OfferBadgeClass" ng-model="product.OfferBadgeClass" placeholder="OfferBadgeClass" ng-maxlength="300" ng-minlength="1" >                                       
+                                    </div>
+                                </div>
+                                <!--------------------------ShortDescription (Edit & Update)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.ShortDescription.$invalid &&
+                                 form1.ShortDescription.$dirty}">
+                                    <label for="input19" class="col-sm-3 control-label">ShortDescription </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input19" name="ShortDescription" ng-model="product.ShortDescription" placeholder="ShortDescription" ng-maxlength="1000" ng-minlength="1" >                                       
+                                    </div>
+                                </div>
+                                <!--------------------------LongDescription (Edit & Update)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.LongDescription.$invalid &&
+                                 form1.LongDescription.$dirty}">
+                                    <label for="input20" class="col-sm-3 control-label">LongDescription </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input20" name="LongDescription" ng-model="product.LongDescription" placeholder="LongDescription" ng-maxlength="1000" ng-minlength="1" >                                      
+                                    </div>
+                                </div>
+                                <!-------------------------- Picture1 (Edit & Update)  ------------------------->
+                                <div class="form-group">
+                                    <label for="imginp1" class="col-sm-3 control-label">Photo 1</label>
+                                    <div class="col-sm-9">
+                                        <img id="pic1Update" ng-src="data:image/png;base64,{{product.Picture1}}" alt="" width="100" height="100" style="margin-left:200px;" />
+                                        <input type="file" class="form-control" id="imginp1" onchange="readURL(this, 'pic1Update');" name="Picture1" ng-model="product.Picture1">
+                                    </div>
+                                </div>
+                                <!-------------------------- Picture2 (Edit & Update)  ------------------------->
+                                <div class="form-group">
+                                    <label for="imginp2" class="col-sm-3 control-label">Photo 2</label>
+                                    <div class="col-sm-9">
+                                        <img id="pic2Update" ng-src="data:image/png;base64,{{product.Picture2}}" alt="" width="100" height="100" style="margin-left:200px;" />
+                                        <input type="file" class="form-control" id="imginp2" onchange="readURL(this, 'pic2Update');" name="Picture2" ng-model="product.Picture2">
+                                    </div>
+                                </div>
+                                <!-------------------------- Picture3 (Edit & Update)  ------------------------->
+                                <div class="form-group">
+                                    <label for="imginp3" class="col-sm-3 control-label">Photo 3</label>
+                                    <div class="col-sm-9">
+                                        <img id="pic3Update" ng-src="data:image/png;base64,{{product.Picture3}}" alt="" width="100" height="100" style="margin-left:200px;" />
+                                        <input type="file" class="form-control" id="imginp3" onchange="readURL(this, 'pic3Update');" name="Picture3" ng-model="product.Picture3">
+                                    </div>
+                                </div>
+                                <!-------------------------- Picture4 (Edit & Update)  ------------------------->
+                                <div class="form-group">
+                                    <label for="imginp4" class="col-sm-3 control-label">Photo 4</label>
+                                    <div class="col-sm-9">
+                                        <img id="pic4Update" ng-src="data:image/png;base64,{{product.Picture4}}" alt="" width="100" height="100" style="margin-left:200px;" />
+                                        <input type="file" class="form-control" id="imginp4" onchange="readURL(this, 'pic4Update');" name="Picture4" ng-model="product.Picture4">
+                                    </div>
+                                </div>
+                                <!--------------------------Note (Edit & Update)  ------------------------->
+                                <div class="form-group" ng-class="{'has-error':form1.Note.$invalid &&
+                                 form1.Note.$dirty}">
+                                    <label for="input21" class="col-sm-3 control-label">Note </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control dropdown-toggle" id="input21" name="Note" ng-model="product.Note" placeholder="Note" ng-maxlength="250" ng-minlength="1" >                                        
+                                    </div>
+                                </div>
+                            </div><!--// form horizpntal-->
+                        </div> <!--// Edit & Update modal body-->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger glyphicon glyphicon-trash " data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-success glyphicon glyphicon-upload" ng-click="updateProduct(pro);">Update</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div>
+        </div>
+    </form>
+</div>
+
+

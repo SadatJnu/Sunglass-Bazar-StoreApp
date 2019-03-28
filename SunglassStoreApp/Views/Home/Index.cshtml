@@ -1,0 +1,515 @@
+﻿<!DOCTYPE html>
+<html ng-app="SunglassBazar">
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>@ViewBag.Title  Sunglass Bazar || Home </title>
+        <!--css design template-->       
+        <link href="~/Content/bootstrap.css" rel="stylesheet" />
+        <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="~/Content/css/font-awesome.css" rel="stylesheet">        
+        <!--css design template-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="Sunglass Bazar Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+                    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <link href='//fonts.googleapis.com/css?family=Cagliostro' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300' rel='stylesheet' type='text/css'>
+        <!--search jQuery-->
+        <script src="~/Scripts/jquery-1.11.1.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <!--search jQuery-->
+        <!--in mainbody css & js-->
+        <link href="~/Content/css/coreSlider.css" rel="stylesheet" />
+        <script src="~/Scripts/js/coreSlider.js"></script>
+        <!--in mainbody css & js-->
+        <!--in single css & js-->
+        <link href="~/Content/css/flexslider.css" rel="stylesheet" />
+        <link href="~/Content/css/owl.carousel.css" rel="stylesheet" />
+        <script src="~/Scripts/js/imagezoom.js"></script>
+        <script src="~/Scripts/js/jquery.flexslider.js"></script>
+        <script src="~/Scripts/js/owl.carousel.js"></script>
+        <!--in single css & js-->
+        <!-- in single responsiveslides & script code-->
+        <script src="~/Scripts/js/responsiveslides.min.js"></script>
+        <script>
+            $(function () {
+                $("#slider").responsiveSlides({
+                    auto: true,
+                    nav: true,
+                    speed: 100,
+                    namespace: "callbacks",
+                    pager: true,
+                });
+            });
+        </script>    <!-- new Products slide tag script code -->
+        <!--responsiveslides & script code-->       
+        <!--mycart-->
+        <script src="~/Scripts/js/move-top.js"></script>
+        <link href="~/Content/css/jquery-ui.css" rel="stylesheet" />
+        <script src="~/Scripts/js/jquery-ui.js"></script>
+        <script src="~/Scripts/js/jquery.mycart.js"></script>
+        <script src="~/Scripts/js/jquery.jscrollpane.min.js"></script>
+        <script src="~/Scripts/js/jquery.mousewheel.js"></script>
+        <script src="~/Scripts/js/main.js"></script>
+        <!-- simpleCart -->
+        <script src="~/Scripts/js/simpleCart.min.js"></script>
+        <!-- simpleCart -->
+        <!--star-rate-->
+        <script src="~/Scripts/js/jstarbox.js"></script>
+        <link rel="stylesheet" href="~/Content/css/jstarbox.css" type="text/css" media="screen" charset="utf-8" />       
+         <script type="text/javascript">
+            jQuery(function () {
+                jQuery('.starbox').each(function () {
+                    var starbox = jQuery(this);
+                    starbox.starbox({
+                        average: starbox.attr('data-start-value'),
+                        changeable: starbox.hasClass('unchangeable') ? false : starbox.hasClass('clickonce') ? 'once' : true,
+                        ghosting: starbox.hasClass('ghosting'),
+                        autoUpdateAverage: starbox.hasClass('autoupdate'),
+                        buttons: starbox.hasClass('smooth') ? false : starbox.attr('data-button-count') || 5,
+                        stars: starbox.attr('data-star-count') || 5
+                    }).bind('starbox-value-changed', function (event, value) {
+                        if (starbox.hasClass('random')) {
+                            var val = Math.random();
+                            starbox.next().text(' ' + val);
+                            return val;
+                        }
+                    })
+                });
+            });
+        </script>
+        <!--End-star-rate-->
+
+        <!-- smoothly scrolling page -->
+        <script src="~/Scripts/js/SmoothScroll.min.js"></script>
+        <script src="~/Scripts/js/easing.js"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $(".scroll").click(function (event) {
+                    event.preventDefault();
+
+                    $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+                });
+            });
+        </script>
+        <!-- //end-smooth-scrolling -->
+        <!-- smooth-scrolling-of-move-up -->
+              
+  </head>
+
+
+<body ng-controller="sunglassCtrl">
+    <!--header tag start-->
+    <div class="header">
+        <div class="header-top">
+            <!-- top header start-->
+            <div class="container">
+                <div class="top-left">
+                    <a href="#/contactPage"> Help  <i class="glyphicon glyphicon-phone" aria-hidden="true"></i> +88 658-456-789</a>
+                </div>
+                <div class="top-right">
+                    <ul>
+                        <li><a href="#/checkoutPage">Checkout</a></li>
+                        <li><a href="#/accountPage">Login</a></li>
+                        <li><a href="#/registerPage"> Create Account </a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>  <!-- top header end -->
+        <div class="heder-bottom">
+            <!-- bottom header start-->
+            <div class="container">
+                <div class="logo-nav">
+                    <div class="logo-nav-left">
+                        <h1><a href="#/">Sunglass Bazar </a></h1>
+                    </div>
+                    <div class="logo-nav-left1">
+                        <nav class="navbar navbar-default">
+                            <!-- Brand and toggle get grouped for better mobile display & minimizing-->
+                            <div class="navbar-header nav_2">
+                                <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div> <!--end -->
+                            <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                                <ul class="nav navbar-nav">
+                                    <li class="active"><a href="#/" class="act">Home</a></li>
+                                    <!-- Mega Menu -->
+                                    <li class="dropdown">
+                                        <a href="#/" class="dropdown-toggle" data-toggle="dropdown">Women<b class="caret"></b></a>
+                                        <ul class="dropdown-menu multi-column columns-3">
+                                            <div class="row">
+                                                <div class="col-sm-3  multi-gd-img">
+                                                    <ul class="multi-column-dropdown">
+                                                        <li><h4>Quick Shop</h4></li>
+                                                        <li><a href="#/bestSellersPage">Best Sellers</a></li>
+                                                        <li><a href="#/polarizedPage">Polarized</a></li>
+                                                        <li><a href="#/topRatedPage">Top Rated</a></li>
+                                                        <li><a href="#"></a></li>
+                                                        <li><a href="#/womenProductsPage">Shop All Women</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3  multi-gd-img">
+                                                    <ul class="multi-column-dropdown">
+                                                        <li><h4>Style Zone</h4></li>
+                                                        <li><a href="#/womenProductsPage">CATE-EYE</a></li>
+                                                        <li><a href="#/womenProductsPage">Square</a></li>
+                                                        <li><a href="#/womenProductsPage">Rectangle</a></li>
+                                                        <li><a href="#/womenProductsPage">Round</a></li>
+                                                        <li><a href="#/womenProductsPage">Oval</a></li>
+                                                        <li><a href="#/womenProductsPage">Shield</a></li>
+                                                        <li><a href="#/womenProductsPage">Pilots</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3  multi-gd-img">
+                                                    <ul class="multi-column-dropdown">
+                                                        <li><h4>Popular Brands</h4></li>
+                                                        <li><a href="#/womenProductsPage">RAY-BAN</a></li>
+                                                        <li><a href="#/womenProductsPage">VERSACE</a></li>
+                                                        <li><a href="#/womenProductsPage">OAKLEY</a></li>
+                                                        <li><a href="#/womenProductsPage">MAUI JIM</a></li>
+                                                        <li><a href="#/womenProductsPage">GUCCI</a></li>
+                                                        <li><a href="#/womenProductsPage">COSTA DEL MAR</a></li>
+                                                        <li><a href="#/womenProductsPage">BURBERRY</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3  multi-gd-img">
+                                                    <ul class="multi-column-dropdown">
+                                                        <li><h4>Best Offers</h4></li>
+                                                        <li><a href="#/womenProductsPage">Summer Discounts</a></li>
+                                                        <li><a href="#/womenProductsPage">Exciting Offers</a></li>
+                                                        <li><a href="#/womenProductsPage">Flat Discounts</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#/" class="dropdown-toggle" data-toggle="dropdown">Men<b class="caret"></b></a>
+                                        <ul class="dropdown-menu multi-column columns-3">
+                                            <div class="row">
+                                                <div class="col-sm-3  multi-gd-img">
+                                                    <ul class="multi-column-dropdown">
+                                                        <li><h4>Quick Shop</h4></li>
+                                                        <li><a href="#/bestSellersPage">Best Sellers</a></li>
+                                                        <li><a href="#/polarizedPage">Polarized</a></li>
+                                                        <li><a href="#/topRatedPage">Top Rated</a></li>
+                                                        <li><a href="#"></a></li>
+                                                        <li><a href="#/menProducts">Shop All Men</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3  multi-gd-img">
+                                                    <ul class="multi-column-dropdown">
+                                                        <li><h4>Style Zone</h4></li>
+                                                        <li><a href="#/menProducts">CATE-EYE</a></li>
+                                                        <li><a href="#/menProducts">Square</a></li>
+                                                        <li><a href="#/menProducts">Rectangle</a></li>
+                                                        <li><a href="#/menProducts">Round</a></li>
+                                                        <li><a href="#/menProducts">Oval</a></li>
+                                                        <li><a href="#/menProducts">Shield</a></li>
+                                                        <li><a href="#/menProducts">Pilots</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3  multi-gd-img">
+                                                    <ul class="multi-column-dropdown">
+                                                        <li><h4>Popular Brands</h4></li>
+                                                        <li><a href="#/menProducts">RAY-BAN</a></li>
+                                                        <li><a href="#/menProducts">VERSACE</a></li>
+                                                        <li><a href="#/menProducts">OAKLEY</a></li>
+                                                        <li><a href="#/menProducts">MAUI JIM</a></li>
+                                                        <li><a href="#/menProducts">GUCCI</a></li>
+                                                        <li><a href="#/menProducts">COSTA DEL MAR</a></li>
+                                                        <li><a href="#/menProducts">BURBERRY</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3  multi-gd-img">
+                                                    <ul class="multi-column-dropdown">
+                                                        <li><h4>Best Offers</h4></li>
+                                                        <li><a href="#/menProducts">Summer Discounts</a></li>
+                                                        <li><a href="#/menProducts">Exciting Offers</a></li>
+                                                        <li><a href="#/menProducts">Flat Discounts</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#/" class="dropdown-toggle" data-toggle="dropdown">Kids<b class="caret"></b></a>
+                                        <ul class="dropdown-menu multi-column columns-3">
+                                            <div class="row">
+                                                <div class="col-sm-3  multi-gd-img">
+                                                    <ul class="multi-column-dropdown">
+                                                        <li><h4>Quick Shop</h4></li>
+                                                        <li><a href="#/bestSellersPage">Best Sellers</a></li>
+                                                        <li><a href="#/polarizedPage">Polarized</a></li>
+                                                        <li><a href="#/topRatedPage">Top Rated</a></li>
+                                                        <li><a href="#"></a></li>
+                                                        <li><a href="#/kidsProductsPage">Shop All Kids</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3  multi-gd-img">
+                                                    <ul class="multi-column-dropdown">
+                                                        <li><h4>Style Zone</h4></li>
+                                                        <li><a href="#/kidsProductsPage">CATE-EYE</a></li>
+                                                        <li><a href="#/kidsProductsPage">Square</a></li>
+                                                        <li><a href="#/kidsProductsPage">Rectangle</a></li>
+                                                        <li><a href="#/kidsProductsPage">Round</a></li>
+                                                        <li><a href="#/kidsProductsPage">Oval</a></li>
+                                                        <li><a href="#/kidsProductsPage">Shield</a></li>
+                                                        <li><a href="#/kidsProductsPage">Pilots</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3  multi-gd-img">
+                                                    <ul class="multi-column-dropdown">
+                                                        <li><h4>Popular Brands</h4></li>
+                                                        <li><a href="#/kidsProductsPage">RAY-BAN</a></li>
+                                                        <li><a href="#/kidsProductsPage">VERSACE</a></li>
+                                                        <li><a href="#/kidsProductsPage">OAKLEY</a></li>
+                                                        <li><a href="#/kidsProductsPage">MAUI JIM</a></li>
+                                                        <li><a href="#/kidsProductsPage">GUCCI</a></li>
+                                                        <li><a href="#/kidsProductsPage">COSTA DEL MAR</a></li>
+                                                        <li><a href="#/kidsProductsPage">BURBERRY</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3  multi-gd-img">
+                                                    <ul class="multi-column-dropdown">
+                                                        <li><h4>Best Offers</h4></li>
+                                                        <li><a href="#/kidsProductsPage">Summer Discounts</a></li>
+                                                        <li><a href="#/kidsProductsPage">Exciting Offers</a></li>
+                                                        <li><a href="#/kidsProductsPage">Flat Discounts</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#/faqPage">FAQ</a></li>
+                                    <li><a href="#/contactPage">Mail Us</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <div class="logo-nav-right">
+                        <ul class="cd-header-buttons">
+                            <li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
+                        </ul> <!-- cd-header-search buttons  tag -->
+                        <div id="cd-search" class="cd-search">
+                            <form action="#" method="post">
+                                <input name="Search" type="search" placeholder="Search...">
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="header-right2">
+                        <div class="cart box_1">
+                            <a href="#/checkoutPage">
+                                <h3>
+                                    <div class="total">
+                                        <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)
+                                    </div>
+                                    <img src="~/images/bag.png" alt="" />
+                                </h3>
+                            </a>
+                            <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>  <!-- bottom header end-->
+    </div>   <!--header tag end-->
+    @*---------------NG VIEW TAG-----------------*@
+    <div class="container body-content">
+        <div ng-view></div>
+        <hr />
+    </div>
+    @*---------------NG VIEW-----------------*@
+
+
+    <!---footer tag start--->
+    <div class="footer-w3l">
+        <div class="container">
+            <div class="footer-grids">
+                <div class="col-md-3 footer-grid">
+                    <h4>About </h4>
+                    <p>
+                        Launched in 2018, Sunglass Bazar is the leading platform for global retail trade.We serve millions of buyers
+                        and suppliers around the world.As a platform, we continue to develop services to help businesses do more and discover
+                        new opportunities.
+                    </p>
+                    <div class="social-icon">
+                        <a href="https://www.facebook.com/Sunglass-Bazar-1610545528999076/" target="_blank"><i class="icon"></i></a>
+                        <a href="https://twitter.com/login?lang=en" target="_blank"><i class="icon1"></i></a>
+                        <a href="https://accounts.google.com/signin/v2/identifier?service=oz&passive=1209600&continue=https%3A%2F%2Fplus.google.com%2Fup%2F%3Fcontinue%3Dhttps%3A%2F%2Fplus.google.com%2Fpeople%26gpsrc%3Dgplp0&flowName=GlifWebSignIn&flowEntry=ServiceLogin" target="_blank"><i class="icon2"></i></a>
+                        <a href="https://www.linkedin.com/company/sunglassbazar" target="_blank"><i class="icon3"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3 footer-grid">
+                    <h4>My Account</h4>
+                    <ul>
+                        <li><a href="#/checkoutPage">Checkout</a></li>
+                        <li><a href="#/accountPage">Login</a></li>
+                        <li><a href="#/registerPage"> Create Account </a></li>
+                        <li><a href="#/contactPage">Contact Us</a></li>
+                        <li><a href="#/aboutPage">About</a></li>
+                        <li><a href="#/ourTeamPage">Our Team</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-grid">
+                    <h4>All Collections</h4>
+                    <ul>
+                        <li><a href="#/">Home</a></li>
+                        <li><a href="#/womenProductsPage">Women's Products</a></li>
+                        <li><a href="#/kidsProductsPage">Kids' Products</a></li>
+                        <li><a href="#/menProducts">Men's Products</a></li>
+                        <li><a href="#/newCollectionPage">Brand Collections</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-grid foot">
+                    <h4>Contacts</h4>
+                    <ul>
+                        <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><a href="#/contactPage">IDB-BISEW, DHAKA</a></li>
+                        <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a href="#/contactPage">+88 325-254-985</a></li>
+                        <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="#/contactPage"> sunglassbazar@idb.com</a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!---footer end--->
+    <!-- for-bottom-to-top smooth scrolling -->
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("myBtn").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+        }
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+    <!-- //for-bottom-to-top smooth scrolling -->
+    <!--copy right payment  tag start-->
+    <div class="copy-section">
+        <div class="container">
+            <div class="copy-left">
+                <p>&copy; 2018 Sunglass Bazar . All rights reserved | Design by <a href="https://www.facebook.com/sadat.bd.5"><strong>Group-A</strong> Round-32 USSL</a></p>
+            </div>
+            <div class="copy-right">
+                <img src="~/images/card.png" alt="" />
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>    <!--copy right end-->
+    @*====================Home Page Pop Up Show Products  Increament & Decreament Tag With JavaScript===================*@
+
+    <link href="~/Content/css/jquery-ui.css" rel="stylesheet" />
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal-info">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="news-gr">
+                        <div class="col-md-5 new-grid1">
+                            <img src="~/images/abt-3.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="col-md-7 new-grid">
+                            <h5>All Sunglass are available at Sunglass Bazar. </h5>
+                            <h6>Quick Overview</h6>
+                            <span>Sunglasses are eyewear designed to help protect the eyes from excessive sunlight. Eyes are extremely light sensitive and can be easily damaged by overexposure to radiation in the visible and nonvisible spectra. </span>
+                            <div class="color-quality">
+                                <div class="color-quality-left">
+                                    <h6>Color : </h6>
+                                    <ul>
+                                        <li><a href="#/"><span></span>Red</a></li>
+                                        <li><a href="#/" class="brown"><span></span>Yellow</a></li>
+                                        <li><a href="#/" class="purple"><span></span>Purple</a></li>
+                                        <li><a href="#/" class="gray"><span></span>Violet</a></li>
+                                    </ul>
+                                </div>
+                                <div class="color-quality-right">
+                                    <h6>Quality :</h6>
+                                    <div class="quantity">
+                                        <div class="quantity-select">
+                                            <div class="entry value-minus1">&nbsp;</div>
+                                            <div class="entry value1"><span>1</span></div>
+                                            <div class="entry value-plus1 active">&nbsp;</div>
+                                        </div>
+                                    </div>
+                                    <!--quantity-->
+                                    <script>
+                                        $('.value-plus1').on('click', function () {
+                                            var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10) + 1;
+                                            divUpd.text(newVal);
+                                        });
+
+                                        $('.value-minus1').on('click', function () {
+                                            var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10) - 1;
+                                            if (newVal >= 1) divUpd.text(newVal);
+                                        });
+                                    </script>   <!--quantity increament & decreament-->
+                                    <!--quantity-->
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="women">
+                                <span class="size">WHITE COLOR </span>
+                                <p><del>$100.00</del><em class="item_price"> $70.00 </em></p>
+                                <div class="add">
+                                    <button class="btn btn-danger my-cart-btn my-cart-b" data-id="3" data-name="Kabuli Chana" data-summary="summary 3" data-price="2.00" data-quantity="1" data-image="~/images/of2.png">Buy Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*=================Home Page Pop Up Show Products  Increament & Decreament Tag With JavaScript End ====================*@
+
+
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
+    <script src="~/Scripts/angular-animate.js"></script>
+    <script src="~/Scripts/angular-resource.js"></script>
+    <script src="~/Scripts/angular-messages.js"></script>
+    <script src="~/Scripts/angular-cookies.js"></script>
+    <script src="~/Scripts/dirPagination.js"></script>
+
+    <script src="~/Scripts/app/app.js"></script>
+    <script src="~/Scripts/Controller/RouteCtrl.js"></script>
+
+    <script src="~/Scripts/Factory/accountService.js"></script>
+    <script src="~/Scripts/Factory/sunglassSvc.js"></script>
+
+    <script src="~/Scripts/Controller/accCtrl.js"></script>
+    <script src="~/Scripts/Controller/sunglassCtrl.js"></script>
+    
+</body>
+</html>
+
+

@@ -1,0 +1,735 @@
+﻿
+@{
+    ViewBag.Title = "MenProducts";
+}
+
+<!--banner start-->
+<div class="banner1">
+    <div class="container">
+        <h3><a href="#/">Home</a> / <span>Men's Products</span></h3>
+    </div>
+</div>
+<!--banner end-->
+
+<!--Men's Collections content start-->
+<div class="content">
+    <div class="products-agileinfo">
+        <h2 class="tittle">Men's Collections</h2>
+        <div class="container">
+            <div class="product-agileinfo-grids w3l">
+                <div class="col-md-3 product-agileinfo-grid">
+                    <div class="categories">
+                        <h3>Categories</h3>
+                        <ul class="tree-list-pad">
+                            <li>
+                                <input type="checkbox" checked="checked" id="item-0" /><label for="item-0"><span></span>Men's Collections</label>
+                                <ul>
+                                    <li>
+                                        <input type="checkbox" id="item-0-0" /><label for="item-0-0">Style Zone</label>
+                                        <ul>
+                                            <li><a href="#/menProducts">Pilot</a></li>
+                                            <li><a href="#/menProducts">Square</a></li>
+                                            <li><a href="#/menProducts">Rectangle</a></li>
+                                            <li><a href="#/menProducts">Round</a></li>
+                                            <li><a href="#/menProducts">Oval</a></li>
+                                            <li><a href="#/menProducts">Shield</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="item-0-1" /><label for="item-0-1">Party  Style Zone</label>
+                                        <ul>
+                                            <li><a href="#/menProducts">Pilot</a></li>
+                                            <li><a href="#/menProducts">Rectangle</a></li>
+                                            <li><a href="#/menProducts">Round</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="item-0-2" /><label for="item-0-2">Casual Style</label>
+                                        <ul>
+                                            <li><a href="#/menProducts">Square</a></li>
+                                            <li><a href="#/menProducts">Oval</a></li>
+                                            <li><a href="#/menProducts">Shield</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="item-1" checked="checked" /><label for="item-1">Best Collections</label>
+                                <ul>
+                                    <li>
+                                        <input type="checkbox" checked="checked" id="item-1-0" /><label for="item-1-0">New Arrivals</label>
+                                        <ul>
+                                            <li><a href="#/productsPage">GUCCI</a></li>
+                                            <li><a href="#/productsPage">RAY-BAN</a></li>
+                                            <li><a href="#/productsPage">VERSACE</a></li>
+                                            <li><a href="#/productsPage">OAKLEY</a></li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li>
+                                <input type="checkbox" checked="checked" id="item-2" /><label for="item-2">Best Offers</label>
+                                <ul>
+                                    <li>
+                                        <input type="checkbox" id="item-2-0" /><label for="item-2-0">Summer Discount Sales</label>
+                                        <ul>
+                                            <li><a href="#/menProducts">GUCCI</a></li>
+                                            <li><a href="#/menProducts">RAY-BAN</a></li>
+                                            <li><a href="#/menProducts">VERSACE</a></li>
+                                            <li><a href="#/menProducts">OAKLEY</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="item-2-1" /><label for="item-2-1">Exciting Offers</label>
+                                        <ul>
+                                            <li><a href="#/menProducts">COSTA DEL MAR</a></li>
+                                            <li><a href="#/menProducts">BURBERRY</a></li>
+                                            <li><a href="#/menProducts">MAUI JIM</a></li>
+                                            <li><a href="#/menProducts">OAKLEY</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="item-2-2" /><label for="item-2-2">Flat Discounts</label>
+                                        <ul>
+                                            <li><a href="#/menProducts">BURBERRY</a></li>
+                                            <li><a href="#/menProducts">RAY-BAN</a></li>
+                                            <li><a href="#/menProducts">VERSACE</a></li>
+                                            <li><a href="#/menProducts">OAKLEY</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="price">
+                        <h3>Price Range</h3>
+                        <ul class="dropdown-menu6">
+                            <li>
+                                <div id="slider-range"></div>
+                                <input type="text" id="amount" style="border: 0; color: #ffffff; font-weight: normal;" />
+                            </li>
+                        </ul> 
+                        @*price range css & js link*@
+                        <link rel="stylesheet" type="text/css" href="~/Content/css/jquery-ui.css">
+                        <script src="~/Scripts/js/jquery-ui.js"></script>
+                        <script type='text/javascript'>
+                            //<![CDATA[
+                            $(window).load(function () {
+                                $("#slider-range").slider({
+                                    range: true,
+                                    min: 0,
+                                    max: 9000,
+                                    values: [1000, 7000],
+                                    slide: function (event, ui) {
+                                        $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+                                    }
+                                });
+                                $("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
+
+                            });//]]>
+                        </script>@*price range script code*@                       
+                    </div>
+                 
+
+                    <div class="top-rates">
+                        <h3>Top Rates Products</h3>
+                        <div class="recent-grids">
+                            <div class="recent-left">
+                                <a href="#/singlePage"><img class="img-responsive " src="~/images/r.jpg" alt=""></a>
+                            </div>
+                            <div class="recent-right">
+                                <h6 class="best2"><a href="#/singlePage">RAY-BAN</a></h6>
+                                <p><del>$100.00</del> <em class="item_price">$90.00</em></p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="recent-grids">
+                            <div class="recent-left">
+                                <a href="#/singlePage"><img class="img-responsive " src="~/images/r1.jpg" alt=""></a>
+                            </div>
+                            <div class="recent-right">
+                                <h6 class="best2"><a href="#/singlePage">RAY-BAN </a></h6>
+                                <p><del>$100.00</del> <em class="item_price">$19.00</em></p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="recent-grids">
+                            <div class="recent-left">
+                                <a href="#/singlePage"><img class="img-responsive " src="~/images/r2.jpg" alt=""></a>
+                            </div>
+                            <div class="recent-right">
+                                <h6 class="best2"><a href="#/singlePage">VERSACE</a></h6>
+                                <p><del>$100.00</del> <em class="item_price">$39.00</em></p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="recent-grids">
+                            <div class="recent-left">
+                                <a href="#/singlePage"><img class="img-responsive " src="~/images/r3.jpg" alt=""></a>
+                            </div>
+                            <div class="recent-right">
+                                <h6 class="best2"><a href="#/singlePage">VERSACE</a></h6>
+                                <p><em class="item_price">$39.00</em></p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    <div class="brand-w3l">
+                        <h3>Brands Filter</h3>
+                        <ul>
+                            <li><a href="#/menProducts">RAY-BAN</a></li>
+                            <li><a href="#/menProducts">VERSACE</a></li>
+                            <li><a href="#/menProducts">OAKLEY</a></li>
+                            <li><a href="#/menProducts">MAUI JIM</a></li>
+                            <li><a href="#/menProducts">GUCCI</a></li>
+                            <li><a href="#/menProducts">COSTA DEL MAR</a></li>
+                            <li><a href="#/menProducts">BURBERRY</a></li>
+                        </ul>
+                    </div>
+                    <div class="cat-img">
+                        <img class="img-responsive " src="~/images/45men.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-md-9 product-agileinfon-grid1">
+                    <div class="product-agileinfon-top">
+                        <div class="col-md-6 product-agileinfon-top-left">
+                            <img class="img-responsive " src="~/images/p28.jpg" alt="">
+                        </div>
+                        <div class="col-md-6 product-agileinfon-top-left">
+                            <img class="img-responsive " src="~/images/pppp-1.jpg" alt="">
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="mens-toolbar">
+                        <p>Showing 1–8 of 21 results</p>
+                        <p class="showing">
+                            Sorting By
+                            <select>
+                                <option value=""> RAY-BAN</option>
+                                <option value=""> VERSACE</option>
+                                <option value=""> OAKLEY </option>
+                                <option value=""> MAUI JIM </option>
+                                <option value=""> GUCCI</option>
+                                <option value=""> COSTA DEL MAR</option>
+                                <option value=""> BURBERRY </option>
+                            </select>
+                        </p>
+                        <p>
+                            Show
+                            <select>
+                                <option value=""> 1</option>
+                                <option value=""> 2</option>
+                                <option value=""> 3 </option>
+                                <option value=""> 4 </option>
+                                <option value=""> 5</option>
+                                <option value=""> 6</option>
+                                <option value=""> 7 </option>
+                                <option value=""> 8 </option>
+                            </select>
+                        </p>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                        <ul id="myTab" class="nav1 nav1-tabs left-tab" role="tablist">
+                            <ul id="myTab" class="nav nav-tabs left-tab" role="tablist">
+                                <li role="presentation" class="active"><a href="#/menProducts" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true"><img src="~/images/menu1.png"></a></li>
+                                <li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile"><img src="~/images/menu.png"></a></li>
+                            </ul>
+                            <div id="myTabContent" class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+                                    <div class="product-tab">
+                                        <div class="col-md-4 product-tab-grid simpleCart_shelfItem">
+                                            <div class="grid-arr">
+                                                <div class="grid-arrival">
+                                                    <figure>
+                                                        <a href="#/singlePage">
+                                                            <div class="grid-img">
+                                                                <img src="~/images/img3.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                            <div class="grid-img">
+                                                                <img src="~/images/img4.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+                                                    </figure>
+                                                </div>
+                                                <div class="block">
+                                                    <div class="starbox small ghosting"> </div>
+                                                </div>
+                                                <div class="women">
+                                                    <h6><a href="#/singlePage">BURBERRY</a></h6>
+                                                    <span class="size">BLACK COLOR </span>
+                                                    <p><del>$100.00</del><em class="item_price">$70.00</em></p>
+                                                    <a href="#/checkoutPage" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 product-tab-grid simpleCart_shelfItem">
+                                            <div class="grid-arr">
+                                                <div class="grid-arrival">
+                                                    <figure>
+                                                        <a href="#/singlePage">
+                                                            <div class="grid-img">
+                                                                <img src="~/images/newArrival-01.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                            <div class="grid-img">
+                                                                <img src="~/images/newArrival-1.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+                                                    </figure>
+                                                </div>
+                                                <div class="block">
+                                                    <div class="starbox small ghosting"> </div>
+                                                </div>
+                                                <div class="women">
+                                                    <h6><a href="#/singlePage">BURBERRY</a></h6>
+                                                    <span class="size">RED COLOR </span>
+                                                    <p><del>$100.00</del><em class="item_price">$70.00</em></p>
+                                                    <a href="#/checkoutPage" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 product-tab-grid simpleCart_shelfItem">
+                                            <div class="grid-arr">
+                                                <div class="grid-arrival">
+                                                    <figure>
+                                                        <a href="#/singlePage">
+                                                            <div class="grid-img">
+                                                                <img src="~/images/newArrival-04.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                            <div class="grid-img">
+                                                                <img src="~/images/newArrival-4.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+                                                    </figure>
+                                                </div>
+                                                <div class="block">
+                                                    <div class="starbox small ghosting"> </div>
+                                                </div>
+                                                <div class="women">
+                                                    <h6><a href="#/singlePage">OAKLEY</a></h6>
+                                                    <span class="size">YELLOW COLOR </span>
+                                                    <p><del>$100.00</del><em class="item_price">$70.00</em></p>
+                                                    <a href="#/checkoutPage" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="product-tab prod1">
+                                        <div class="col-md-4 product-tab-grid simpleCart_shelfItem">
+                                            <div class="grid-arr">
+                                                <div class="grid-arrival">
+                                                    <figure>
+                                                        <a href="#/singlePage">
+                                                            <div class="grid-img">
+                                                                <img src="~/images/s2.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                            <div class="grid-img">
+                                                                <img src="~/images/s1.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+                                                    </figure>
+                                                </div>
+                                                <div class="block">
+                                                    <div class="starbox small ghosting"> </div>
+                                                </div>
+                                                <div class="women">
+                                                    <h6><a href="#/singlePage">OAKLEY</a></h6>
+                                                    <span class="size">BLACK COLOR </span>
+                                                    <p><del>$100.00</del><em class="item_price">$70.00</em></p>
+                                                    <a href="#/checkoutPage" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 product-tab-grid simpleCart_shelfItem">
+                                            <div class="grid-arr">
+                                                <div class="grid-arrival">
+                                                    <figure>
+                                                        <a href="#/singlePage">
+                                                            <div class="grid-img">
+                                                                <img src="~/images/s4.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                            <div class="grid-img">
+                                                                <img src="~/images/s3.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+                                                    </figure>
+                                                </div>
+                                                <div class="block">
+                                                    <div class="starbox small ghosting"> </div>
+                                                </div>
+                                                <div class="women">
+                                                    <h6><a href="#/singlePage">COSTA DEL MAR</a></h6>
+                                                    <span class="size">BLACK COLOR </span>
+                                                    <p><del>$100.00</del><em class="item_price">$70.00</em></p>
+                                                    <a href="#/checkoutPage" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 product-tab-grid simpleCart_shelfItem">
+                                            <div class="grid-arr">
+                                                <div class="grid-arrival">
+                                                    <figure>
+                                                        <a href="#/singlePage">
+                                                            <div class="grid-img">
+                                                                <img src="~/images/p30.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                            <div class="grid-img">
+                                                                <img src="~/images/p29.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+                                                    </figure>
+                                                </div>
+                                                <div class="block">
+                                                    <div class="starbox small ghosting"> </div>
+                                                </div>
+                                                <div class="women">
+                                                    <h6><a href="#/singlePage">OAKLEY</a></h6>
+                                                    <span class="size">BLUE COLOR</span>
+                                                    <p><del>$100.00</del><em class="item_price">$70.00</em></p>
+                                                    <a href="#/checkoutPage" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="product-tab">
+                                        <div class="col-md-4 product-tab-grid simpleCart_shelfItem">
+                                            <div class="grid-arr">
+                                                <div class="grid-arrival">
+                                                    <figure>
+                                                        <a href="#/singlePage">
+                                                            <div class="grid-img">
+                                                                <img src="~/images/s6.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                            <div class="grid-img">
+                                                                <img src="~/images/s5.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+                                                    </figure>
+                                                </div>
+                                                <div class="block">
+                                                    <div class="starbox small ghosting"> </div>
+                                                </div>
+                                                <div class="women">
+                                                    <h6><a href="#/singlePage">COSTA DEL MAR</a></h6>
+                                                    <span class="size">GREEN COLOR </span>
+                                                    <p><del>$100.00</del><em class="item_price">$70.00</em></p>
+                                                    <a href="#/checkoutPage" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 product-tab-grid simpleCart_shelfItem">
+                                            <div class="grid-arr">
+                                                <div class="grid-arrival">
+                                                    <figure>
+                                                        <a href="#/singlePage">
+                                                            <div class="grid-img">
+                                                                <img src="~/images/s8.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                            <div class="grid-img">
+                                                                <img src="~/images/s7.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+                                                    </figure>
+                                                </div>
+                                                <div class="block">
+                                                    <div class="starbox small ghosting"> </div>
+                                                </div>
+                                                <div class="women">
+                                                    <h6><a href="#/singlePage">GUCCI</a></h6>
+                                                    <span class="size">BLACK COLOR </span>
+                                                    <p><del>$100.00</del><em class="item_price">$70.00</em></p>
+                                                    <a href="#/checkoutPage" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 product-tab-grid simpleCart_shelfItem">
+                                            <div class="grid-arr">
+                                                <div class="grid-arrival">
+                                                    <figure>
+                                                        <a href="#/singlePage">
+                                                            <div class="grid-img">
+                                                                <img src="~/images/s10.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                            <div class="grid-img">
+                                                                <img src="~/images/s9.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+                                                    </figure>
+                                                </div>
+                                                <div class="block">
+                                                    <div class="starbox small ghosting"> </div>
+                                                </div>
+                                                <div class="women">
+                                                    <h6><a href="#/singlePage">MAUI JIM</a></h6>
+                                                    <span class="size">BLACK COLOR </span>
+                                                    <p><del>$100.00</del><em class="item_price">$70.00</em></p>
+                                                    <a href="#/checkoutPage" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="product-tab prod2">
+                                        <div class="col-md-4 product-tab-grid simpleCart_shelfItem">
+                                            <div class="grid-arr">
+                                                <div class="grid-arrival">
+                                                    <figure>
+                                                        <a href="#/singlePage">
+                                                            <div class="grid-img">
+                                                                <img src="~/images/s12.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                            <div class="grid-img">
+                                                                <img src="~/images/s11.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+                                                    </figure>
+                                                </div>
+                                                <div class="block">
+                                                    <div class="starbox small ghosting"> </div>
+                                                </div>
+                                                <div class="women">
+                                                    <h6><a href="#/singlePage">RAY-BAN</a></h6>
+                                                    <span class="size">BLACK COLOR</span>
+                                                    <p><del>$100.00</del><em class="item_price">$70.00</em></p>
+                                                    <a href="#/checkoutPage" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 product-tab-grid simpleCart_shelfItem">
+                                            <div class="grid-arr">
+                                                <div class="grid-arrival">
+                                                    <figure>
+                                                        <a href="#/singlePage">
+                                                            <div class="grid-img">
+                                                                <img src="~/images/p16.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                            <div class="grid-img">
+                                                                <img src="~/images/p15.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+                                                    </figure>
+                                                </div>
+                                                <div class="block">
+                                                    <div class="starbox small ghosting"> </div>
+                                                </div>
+                                                <div class="women">
+                                                    <h6><a href="#/singlePage">RAY-BAN</a></h6>
+                                                    <span class="size">GOLD COLOR</span>
+                                                    <p><del>$100.00</del><em class="item_price">$70.00</em></p>
+                                                    <a href="#/checkoutPage" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 product-tab-grid simpleCart_shelfItem">
+                                            <div class="grid-arr">
+                                                <div class="grid-arrival">
+                                                    <figure>
+                                                        <a href="#/singlePage">
+                                                            <div class="grid-img">
+                                                                <img src="~/images/s2.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                            <div class="grid-img">
+                                                                <img src="~/images/s1.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+                                                    </figure>
+                                                </div>
+                                                <div class="block">
+                                                    <div class="starbox small ghosting"> </div>
+                                                </div>
+                                                <div class="women">
+                                                    <h6><a href="#/singlePage">OAKLEY</a></h6>
+                                                    <span class="size">GOLD COLOR </span>
+                                                    <p><del>$100.00</del><em class="item_price">$70.00</em></p>
+                                                    <a href="#/checkoutPage" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+                                    <div class="product-tab1">
+                                        <div class="col-md-4 product-tab1-grid">
+                                            <div class="grid-arr">
+                                                <div class="grid-arrival">
+                                                    <figure>
+                                                        <a href="#/singlePage">
+                                                            <div class="grid-img">
+                                                                <img src="~/images/r4.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                            <div class="grid-img">
+                                                                <img src="~/images/r5.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 product-tab1-grid1 simpleCart_shelfItem">
+                                            <div class="block">
+                                                <div class="starbox small ghosting"> </div>
+                                            </div>
+                                            <div class="women">
+                                                <h6><a href="#/singlePage">OAKLEY</a></h6>
+                                                <span class="size">BLACK COLOR</span>
+                                                <p>Sunglasses are eyewear designed to help protect the eyes from excessive sunlight. Eyes are extremely light sensitive and can be easily damaged by overexposure to radiation in the visible and nonvisible spectra.  </p>
+                                                <p><del>$100.00</del><em class="item_price">$70.00</em></p>
+                                                <a href="#/checkoutPage" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="product-tab1 prod3">
+                                        <div class="col-md-4 product-tab1-grid">
+                                            <div class="grid-arr">
+                                                <div class="grid-arrival">
+                                                    <figure>
+                                                        <a href="#/singlePage">
+                                                            <div class="grid-img">
+                                                                <img src="~/images/ppppppp-1.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                            <div class="grid-img">
+                                                                <img src="~/images/ppppppp-2.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 product-tab1-grid1 simpleCart_shelfItem">
+                                            <div class="block">
+                                                <div class="starbox small ghosting"> </div>
+                                            </div>
+                                            <div class="women">
+                                                <h6><a href="#/singlePage">OAKLEY</a></h6>
+                                                <span class="size">Violet COLOR</span>
+                                                <p>Sunglasses are eyewear designed to help protect the eyes from excessive sunlight. Eyes are extremely light sensitive and can be easily damaged by overexposure to radiation in the visible and nonvisible spectra.  </p>
+                                                <p><del>$100.00</del><em class="item_price">$70.00</em></p>
+                                                <a href="#/checkoutPage" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="product-tab1">
+                                        <div class="col-md-4 product-tab1-grid">
+                                            <div class="grid-arr">
+                                                <div class="grid-arrival">
+                                                    <figure>
+                                                        <a href="#/singlePage">
+                                                            <div class="grid-img">
+                                                                <img src="~/images/s6.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                            <div class="grid-img">
+                                                                <img src="~/images/s5.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 product-tab1-grid1 simpleCart_shelfItem">
+                                            <div class="block">
+                                                <div class="starbox small ghosting"> </div>
+                                            </div>
+                                            <div class="women w3l">
+                                                <h6><a href="#/singlePage">OAKLEY</a></h6>
+                                                <span class="size">GOLD COLOR</span>
+                                                <p>Sunglasses are eyewear designed to help protect the eyes from excessive sunlight. Eyes are extremely light sensitive and can be easily damaged by overexposure to radiation in the visible and nonvisible spectra.  </p>
+                                                <p><del>$100.00</del><em class="item_price">$70.00</em></p>
+                                                <a href="#/checkoutPage" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="product-tab1 prod3">
+                                        <div class="col-md-4 product-tab1-grid">
+                                            <div class="grid-arr">
+                                                <div class="grid-arrival">
+                                                    <figure>
+                                                        <a href="#/singlePage">
+                                                            <div class="grid-img">
+                                                                <img src="~/images/s8.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                            <div class="grid-img">
+                                                                <img src="~/images/s7.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 product-tab1-grid1 simpleCart_shelfItem">
+                                            <div class="block">
+                                                <div class="starbox small ghosting"> </div>
+                                            </div>
+                                            <div class="women">
+                                                <h6><a href="#/singlePage">OAKLEY</a></h6>
+                                                <span class="size">Violet COLOR </span>
+                                                <p>Sunglasses are eyewear designed to help protect the eyes from excessive sunlight. Eyes are extremely light sensitive and can be easily damaged by overexposure to radiation in the visible and nonvisible spectra.  </p>
+                                                <p><del>$100.00</del><em class="item_price">$70.00</em></p>
+                                                <a href="#/checkoutPage" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="product-tab1">
+                                        <div class="col-md-4 product-tab1-grid">
+                                            <div class="grid-arr">
+                                                <div class="grid-arrival">
+                                                    <figure>
+                                                        <a href="#/singlePage">
+                                                            <div class="grid-img">
+                                                                <img src="~/images/s10.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                            <div class="grid-img">
+                                                                <img src="~/images/s9.jpg" class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 product-tab1-grid1 simpleCart_shelfItem">
+                                            <div class="block">
+                                                <div class="starbox small ghosting"> </div>
+                                            </div>
+                                            <div class="women">
+                                                <h6><a href="#/singlePage">OAKLEY</a></h6>
+                                                <span class="size">RED COLOR </span>
+                                                <p>Sunglasses are eyewear designed to help protect the eyes from excessive sunlight. Eyes are extremely light sensitive and can be easily damaged by overexposure to radiation in the visible and nonvisible spectra.  </p>
+                                                <p><del>$100.00</del><em class="item_price">$70.00</em></p>
+                                                <a href="#/checkoutPage" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Men's Collections content end-->
+
+ <!--Disscount blog start-->
+<div class="accessories-w3l">
+    <div class="container">
+        <h3 class="tittle">25% Discount on</h3>
+        <span>TRENDING DESIGNS</span>
+        <div class="button">
+            <a href="#/singlePage" class="button1"> Shop Now</a>
+            <a href="#/newCollectionPage" class="button1"> Quick View</a>
+        </div>
+    </div>
+</div>
+<!--Disscount blog end-->
+

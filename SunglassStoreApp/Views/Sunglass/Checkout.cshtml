@@ -1,0 +1,370 @@
+﻿
+@{
+    ViewBag.Title = "Checkout";
+}
+
+<!--banner tag start-->
+<div class="banner1">
+    <div class="container">
+        <h3><a href="#/">Home</a> / <span>Checkout</span></h3>
+    </div>
+</div>
+<!--banner tag end-->
+
+<!--checkout tag start-->
+<div class="content">
+    <div class="cart-items">
+        <div class="container">
+            <h2>My Shopping Bag (3)</h2>
+            <script>
+                    $(document).ready(function (c) {
+                    $('.close1').on('click', function (c) {
+                    $('.cart-header').fadeOut('slow', function (c) {
+                        $('.cart-header').remove();
+                     });
+                     });
+                    });
+            </script> @*checkout products removing script code*@
+            <div class="cart-header">
+                <div class="close1"> </div>
+                    <div class="cart-sec simpleCart_shelfItem">
+                        <div class="cart-item cyc">
+                            <img src="~/images/ppp-1.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="cart-item-info">
+                            <h3><a href="#/">Sunglasses are eyewear protector. </a><span>Pickup time:</span></h3>
+                            <ul class="qty">
+                                <li><p>Min. order value:</p></li>
+                                <li><p>FREE Delivery</p></li>
+                            </ul>
+                            <div class="delivery">
+                                <p>Service Charges : $10.00</p>
+                                <span>Delivered in 2-3 working days</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>                
+                   </div>
+            <script>
+                    $(document).ready(function (c) {
+                    $('.close2').on('click', function (c) {
+                    $('.cart-header2').fadeOut('slow', function (c) {
+                        $('.cart-header2').remove();
+                    });
+                     });
+                    });
+            </script>   @*checkout products removing script code*@
+            <div class="cart-header2">
+                <div class="close2"> </div>
+                <div class="cart-sec simpleCart_shelfItem">
+                    <div class="cart-item cyc">
+                        <img src="~/images/abt-001.jpg" class="img-responsive" alt="">
+                    </div>
+                    <div class="cart-item-info">
+                        <h3><a href="#/">Sunglasses are eyewear protector. </a><span>Pickup time:</span></h3>
+                        <ul class="qty">
+                            <li><p>Min. order value:</p></li>
+                            <li><p>FREE Delivery</p></li>
+                        </ul>
+                        <div class="delivery">
+                            <p>Service Charges : $25.00</p>
+                            <span>Delivered in 2-3 working days</span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <script>
+                     $(document).ready(function (c) {
+                     $('.close3').on('click', function (c) {
+                     $('.cart-header3').fadeOut('slow', function (c) {
+                         $('.cart-header3').remove();
+                     });
+                     });
+                     });
+            </script>   @*checkout products removing script code*@
+            <div class="cart-header3">
+                <div class="close3"> </div>
+                <div class="cart-sec simpleCart_shelfItem">
+                    <div class="cart-item cyc">
+                        <img src="~/images/img-01.jpg" class="img-responsive" alt="">
+                    </div>
+                    <div class="cart-item-info">
+                        <h3><a href="#/">Sunglasses are eyewear protector.</a><span>Pickup time:</span></h3>
+                        <ul class="qty">
+                            <li><p>Min. order value:</p></li>
+                            <li><p>FREE Delivery</p></li>
+                        </ul>
+                        <div class="delivery">
+                            <p>Service Charges : $50.00</p>
+                            <span>Delivered in 2-3 working days</span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>    
+         </div>
+    </div>
+</div>
+<!--checkout tag end-->
+
+
+    <!-- new Products tag start-->
+<div class="product-agile">
+    <div class="container">
+        <h3 class="tittle1"> New Products</h3>
+        <div class="slider">
+            <div class="callbacks_container">
+                <ul class="rslides" id="slider">
+                    <li>
+                        <div class="caption">
+                            <div class="col-md-3 cap-left simpleCart_shelfItem">
+                                <div class="grid-arr">
+                                    <div class="grid-arrival">
+                                        <figure>
+                                            <a href="#/singlePage">
+                                                <div class="grid-img">
+                                                    <img src="~/images/abt-001.jpg" class="img-responsive" alt="">
+                                                </div>
+                                                <div class="grid-img">
+                                                    <img src="~/images/abt-1.jpg" class="img-responsive" alt="">
+                                                </div>
+                                            </a>
+                                        </figure>
+                                    </div>
+                                    <div class="ribben">
+                                        <p>-62%</p>
+                                    </div>
+                                    <div class="block">
+                                        <div class="starbox small ghosting"> </div>
+                                    </div>
+                                    <div class="women">
+                                        <h6><a href="#/singlePage">RAY-BAN</a></h6>
+                                        <span class="size">BLACK COLOR </span>
+                                        <p><del>$100.00</del><em class="item_price">$70.00</em></p>
+                                        <a href="#/checkoutPage" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 cap-left simpleCart_shelfItem">
+                                <div class="grid-arr">
+                                    <div class="grid-arrival">
+                                        <figure>
+                                            <a href="#/singlePage">
+                                                <div class="grid-img">
+                                                    <img src="~/images/abt-2.jpg" class="img-responsive" alt="">
+                                                </div>
+                                                <div class="grid-img">
+                                                    <img src="~/images/abt-03.jpg" class="img-responsive" alt="">
+                                                </div>
+                                            </a>
+                                        </figure>
+                                    </div>
+                                    <div class="ribben">
+                                        <p>-30%</p>
+                                    </div>
+                                    <div class="block">
+                                        <div class="starbox small ghosting"> </div>
+                                    </div>
+                                    <div class="women">
+                                        <h6><a href="#/singlePage">MAUI JIM</a></h6>
+                                        <span class="size">RED COLOR </span>
+                                        <p><del>$100.00</del><em class="item_price">$70.00</em></p>
+                                        <a href="#/checkoutPage" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 cap-left simpleCart_shelfItem">
+                                <div class="grid-arr">
+                                    <div class="grid-arrival">
+                                        <figure>
+                                            <a href="#/singlePage">
+                                                <div class="grid-img">
+                                                    <img src="~/images/abt-3.jpg" class="img-responsive" alt="">
+                                                </div>
+                                                <div class="grid-img">
+                                                    <img src="~/images/i2.jpg" class="img-responsive" alt="">
+                                                </div>
+                                            </a>
+                                        </figure>
+                                    </div>
+                                    <div class="ribben1">
+                                        <p>SALE</p>
+                                    </div>
+                                    <div class="block">
+                                        <div class="starbox small ghosting"> </div>
+                                    </div>
+                                    <div class="women">
+                                        <h6><a href="#/singlePage">VERSACE</a></h6>
+                                        <span class="size">PURPLE COLOR </span>
+                                        <p><del>$100.00</del><em class="item_price">$70.00</em></p>
+                                        <a href="#/checkoutPage" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 cap-left simpleCart_shelfItem">
+                                <div class="grid-arr">
+                                    <div class="grid-arrival">
+                                        <figure>
+                                            <a href="#/singlePage">
+                                                <div class="grid-img">
+                                                    <img src="~/images/img-01.jpg" class="img-responsive" alt="">
+                                                </div>
+                                                <div class="grid-img">
+                                                    <img src="~/images/img2.jpg" class="img-responsive" alt="">
+                                                </div>
+                                            </a>
+                                        </figure>
+                                    </div>
+                                    <div class="ribben">
+                                        <p>-20%</p>
+                                    </div>
+                                    <div class="block">
+                                        <div class="starbox small ghosting"> </div>
+                                    </div>
+                                    <div class="women">
+                                        <h6><a href="#/singlePage">RAY-BAN</a></h6>
+                                        <span class="size">BLACK COLOR </span>
+                                        <p><del>$100.00</del><em class="item_price">$70.00</em></p>
+                                        <a href="#/checkoutPage" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="caption">
+                            <div class="col-md-3 cap-left simpleCart_shelfItem">
+                                <div class="grid-arr">
+                                    <div class="grid-arrival">
+                                        <figure>
+                                            <a href="#/singlePage">
+                                                <div class="grid-img">
+                                                    <img src="~/images/l2.jpg" class="img-responsive" alt="">
+                                                </div>
+                                                <div class="grid-img">
+                                                    <img src="~/images/img3.jpg" class="img-responsive" alt="">
+                                                </div>
+                                            </a>
+                                        </figure>
+                                    </div>
+                                    <div class="block">
+                                        <div class="starbox small ghosting"> </div>
+                                    </div>
+                                    <div class="women">
+                                        <h6><a href="#/singlePage">VERSACE</a></h6>
+                                        <span class="size">BLACK COLOR</span>
+                                        <p><del>$100.00</del><em class="item_price">$70.00</em></p>
+                                        <a href="#/checkoutPage" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 cap-left simpleCart_shelfItem">
+                                <div class="grid-arr">
+                                    <div class="grid-arrival">
+                                        <figure>
+                                            <a href="#/singlePage">
+                                                <div class="grid-img">
+                                                    <img src="~/images/l5.jpg" class="img-responsive" alt="">
+                                                </div>
+                                                <div class="grid-img">
+                                                    <img src="~/images/newArrival-4.jpg" class="img-responsive" alt="">
+                                                </div>
+                                            </a>
+                                        </figure>
+                                    </div>
+                                    <div class="ribben">
+                                        <p>NEW</p>
+                                    </div>
+                                    <div class="block">
+                                        <div class="starbox small ghosting"> </div>
+                                    </div>
+                                    <div class="women">
+                                        <h6><a href="#/singlePage">GUCCI</a></h6>
+                                        <span class="size">BLACK COLOR </span>
+                                        <p><del>$100.00</del><em class="item_price">$70.00</em></p>
+                                        <a href="#/checkoutPage" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 cap-left simpleCart_shelfItem">
+                                <div class="grid-arr">
+                                    <div class="grid-arrival">
+                                        <figure>
+                                            <a href="#/singlePage">
+                                                <div class="grid-img">
+                                                    <img src="~/images/p4.jpg" class="img-responsive" alt="">
+                                                </div>
+                                                <div class="grid-img">
+                                                    <img src="~/images/p10.jpg" class="img-responsive" alt="">
+                                                </div>
+                                            </a>
+                                        </figure>
+                                    </div>
+                                    <div class="ribben">
+                                        <p>-75%</p>
+                                    </div>
+                                    <div class="block">
+                                        <div class="starbox small ghosting"> </div>
+                                    </div>
+                                    <div class="women">
+                                        <h6><a href="#/singlePage">COSTA DEL MAR</a></h6>
+                                        <span class="size">BLACK COLOR</span>
+                                        <p><del>$100.00</del><em class="item_price">$70.00</em></p>
+                                        <a href="#/checkoutPage" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 cap-left simpleCart_shelfItem">
+                                <div class="grid-arr">
+                                    <div class="grid-arrival">
+                                        <figure>
+                                            <a href="#/singlePage">
+                                                <div class="grid-img">
+                                                    <img src="~/images/p13.jpg" class="img-responsive" alt="">
+                                                </div>
+                                                <div class="grid-img">
+                                                    <img src="~/images/p15.jpg" class="img-responsive" alt="">
+                                                </div>
+                                            </a>
+                                        </figure>
+                                    </div>
+                                    <div class="ribben">
+                                        <p>NEW</p>
+                                    </div>
+                                    <div class="block">
+                                        <div class="starbox small ghosting"> </div>
+                                    </div>
+                                    <div class="women">
+                                        <h6><a href="#/singlePage">RAY-BAN</a></h6>
+                                        <span class="size">BLACK COLOR </span>
+                                        <p><del>$100.00</del><em class="item_price">$70.00</em></p>
+                                        <a href="#/checkoutPage" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </li>
+                </ul>
+                <script>
+                    $(function () {
+                        $("#slider").responsiveSlides({
+                            auto: true,
+                            nav: true,
+                            speed: 100,
+                            namespace: "callbacks",
+                            pager: true,
+                        });
+                    });
+                </script>  <!-- new Products slide tag script code -->
+            </div>
+        </div>
+    </div>
+</div>    <!-- new Products tag end-->
+
+

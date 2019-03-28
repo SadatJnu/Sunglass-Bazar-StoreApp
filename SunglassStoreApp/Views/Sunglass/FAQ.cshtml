@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewBag.Title = "FAQ";
+}
+
+<!--only faq all page Static Design css link -->
+<link href="~/Content/css/faq.css" rel="stylesheet" />
+
+<!--banner tag start-->
+<div class="banner1">
+    <div class="container">
+        <h3><a href="#/">Home</a> / <span>FAQ</span></h3>
+    </div>
+</div>
+<!--banner tag end-->
+
+    <!--faq tag start-->
+    <div class="faq-info">
+        <div class="container">
+            <div class="title-info">
+                <h3 class="title">Frequently Asked<span> Questions</span></h3>
+            </div>
+            <ul class="faq">
+                <li class="item1 wow fadeInDown animated" data-wow-delay=".5s">
+                    <a href="#">Are all products on Sunglass Bazar original and genuine?<span class="icon"> </span></a>
+                    <ul>
+                        <li class="subitem1"><p>Yes, we are committed to offering our customers only 100% genuine and original products. We also take all necessary actions to ensure this: any seller found to be selling non-genuine prodcts is immediately delisted from Sunglass Bazar.Please send us an email on <b>sunglassbazar@idb.com.</b> if you think a product listed on our website does not fulfill these standards.</p></li>
+                    </ul>
+                </li>
+
+                <li class="item2 wow fadeInDown animated" data-wow-delay=".5s">
+                    <a href="#"> How do I place an order?<span class="icon"> </span></a>
+                    <ul>
+                        <li class="subitem1"><p>Shopping on Sunglass Bazar is easy! You can order us through the <b>SunglassBazar.com.bd</b> website where products are available & you can choice your desire items & can place your order.</p></li>
+                    </ul>
+                    <ul>
+                        <li class="subitem1"><p>Once you have found the product you want to buy, just follow the steps below:</p></li>
+                    </ul>
+                    <ul>
+                        <li class="subitem1"><p>Click ’buy now’, to add this product to your cart,</p></li>
+                    </ul>
+                    <ul>
+                        <li class="subitem1"><p>Click ’Go to next step’ in the top right corner,</p></li>
+                    </ul>
+                    <ul>
+                        <li class="subitem1"><p>You will then need to fill in your contact details and preferred shipping address,</p></li>
+                    </ul>
+                    <ul>
+                        <li class="subitem1"><p>Chose your preferred payment option before clicking the ’Confirm order’ button.</p></li>
+                    </ul>
+                </li>
+
+                <li class="item3 wow fadeInDown animated" data-wow-delay=".5s">
+                    <a href="#">How can I get a refund or replacement for my product?<span class="icon"> </span></a>
+                    <ul>
+                        <li class="subitem1"><p><strong>Step 1 : Contact us-</strong>Call  us at 16492 to create your return request, select the product you wish to return on the return form that arrived with your order.</p></li>
+                        <li class="subitem1"><p><strong>Step 2 : Pack your product-</strong>Pack your product according to the return conditions.</p></li>
+                        <li class="subitem1"><p><strong>Step 2 : Pack your product-</strong>Include all tags, accessories or free gifts you received.</p></li>
+                        <li class="subitem1"><p><strong>Step 3 : Return your product-</strong>If you requested a pickup, we will contact you to arrange a pickup time.</p></li>
+                        <li class="subitem1"><p><strong>Step 3 : Return your product-</strong>If you selected a drop-off: Please drop your package at any TCS station and attach the address label included with your package on the box (no shipping charges will apply).</p></li>
+                        <li class="subitem1"><p><strong>Step 3 : Return your product-</strong>Call 16492 to create your return request .</p></li>
+                    </ul>                  
+                  </li>
+
+                <li class="item4 wow fadeInDown animated" data-wow-delay=".5s">
+                    <a href="#">  Are there any hidden costs or charges if I order from Sunglass Bazar?<span class="icon"> </span></a>
+                    <ul>
+                        <li class="subitem1"><p>There are no hidden costs or charges when you order from Sunglass Bazar. All costs are 100% visible at the end of the checkout process.</p></li>
+                    </ul>
+                </li>
+
+                <li class="item5 wow fadeInDown animated" data-wow-delay=".5s">
+                    <a href="#">   How can I track my order?<span class="icon"> </span></a>
+                    <ul>
+                        <li class="subitem1"><p>We will send you regular updates about the status of your order via emails and SMS. After your order has left our warehouse and is on its way to you, you can also track its status by entering your tracking number on tracking <b>SunglassBazar.com.bd.</b></p></li>
+                    </ul>
+                </li>
+            </ul>
+
+
+            <!-- script for faq tabs -->
+            <script type="text/javascript">
+                $(function () {
+
+                    var menu_ul = $('.faq > li > ul'),
+                           menu_a = $('.faq > li > a');
+
+                    menu_ul.hide();
+
+                    menu_a.click(function (e) {
+                        e.preventDefault();
+                        if (!$(this).hasClass('active')) {
+                            menu_a.removeClass('active');
+                            menu_ul.filter(':visible').slideUp('normal');
+                            $(this).addClass('active').next().stop(true, true).slideDown('normal');
+                        } else {
+                            $(this).removeClass('active');
+                            $(this).next().stop(true, true).slideUp('normal');
+                        }
+                    });
+                });
+            </script>  <!-- script for tabs -->
+        </div>  <!--//container-->
+    </div>  <!--//faq-->
+   
+
+<hr />
+ <!--contact-->
+    <div class="mail-bottom">
+        <h4>We're Here to Help</h4>
+        <form action="#" method="post">
+            <input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
+            <input type="email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+            <input type="text" value="Phone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Telephone';}" required="">
+            <textarea onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Clear">
+
+        </form>
+    </div> <!--contact end-->
+
+
+
+

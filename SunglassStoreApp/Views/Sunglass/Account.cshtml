@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Account";
+}
+
+<link href="~/Content/css/logstyle.css" rel="stylesheet" />
+<!--banner tag start-->
+<div class="banner1">
+    <div class="container">
+        <h3><a href="#/">Home</a> / <span>Login</span></h3>
+    </div>
+</div>
+<!--banner tag end-->
+
+<script>
+    addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    }
+</script>
+
+ <!--login tag start-->
+<h2 class="title-agile text-center" style="color: #F4F6F7;font-size: 3.5em;font-family:fantasy">Sunglass Bazar Login Form</h2>
+<div class="content-w3ls">
+    <div class="agileits-grid">
+        <div class="content-top-agile">
+            <h2>Login To Sunglass Bazar</h2>
+        </div>
+        <div class="content-bottom">
+            <form action="#" method="post">
+                <div class="field_w3ls">
+                    <div class="field-group">
+                        <input name="text1" id="text1" type="text" value="" placeholder="Username" required>
+                    </div>
+                    <div class="field-group">
+                        <input id="password-field" type="password" class="form-control" name="password" value="" placeholder="Password">
+                        <span toggle="#password-field" class="glyphicon glyphicon-lock field-icon toggle-password"></span>
+                    </div>
+                </div>
+                <div class="wthree-field">
+                    <input id="saveForm" name="saveForm" type="submit" value="Login" />
+                </div>
+                <ul class="list-login">
+                    <li class="switch-agileits">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                            <strong>Keep me Signed in</strong>
+                        </label>
+                    </li>
+                    <li>
+                        <a href="#/accountPage" class="text-right" style="font-weight: 700;">forgot password?</a>
+                    </li>                   
+                    <li class="clearfix"></li>
+                </ul>               
+            </form>
+        </div>
+        <!-- //content bottom -->
+    </div>  
+ </div>
+
+  <!-- script for show password -->
+<script>
+    $(".toggle-password").click(function () {
+
+        $(this).toggleClass("glyphicon glyphicon-lock");
+        var input = $($(this).attr("toggle"));
+        if (input.attr("type") == "password") {
+            input.attr("type", "text");
+        } else {
+            input.attr("type", "password");
+        }
+    });
+</script>
+<!-- /script for show password -->
+
+
+<br /><br />
+<div class="button" style="text-align:center">
+ <a href="#/registerPage" class="button1" style="background-color: white; color: black;font-weight: 700;"> Create New Account</a>
+</div>
+<br /><br />
+
+
