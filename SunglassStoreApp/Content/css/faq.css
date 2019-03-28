@@ -1,0 +1,157 @@
+.title-info {
+    text-align: center;
+    margin-bottom: 5em;
+}
+h3.title{
+    font-size: 3.5em;
+    font-weight: 900;
+    color: #FF590F;
+}
+h3.title span {
+    color: #353f49;
+}
+.title-info p {
+    font-size: 1em;
+    color: #999;
+    margin-top: .5em;
+    letter-spacing: 1px;
+}
+.products,.related-products,.login-page,.contact,.cart-items,.about,.faq-info,.codes{
+    padding: 2em 0;
+}
+/*--faq--*/
+.faq-info a {
+    padding: 1em 1.5em;
+    background: #00a6d6;
+}
+.faq-info .faq li p {
+    font-size: 1em;
+    color: #999;
+    padding-left: 2em;
+    line-height: 1.8em;
+}
+/*--//faq--*/
+.products, .related-products, .login-page, .contact, .cart-items, .about, .faq-info, .codes {
+    padding: 4em 0;
+}
+.products, .related-products, .login-page, .contact, .cart-items, .about, .faq-info, .codes {
+    padding: 3em 0;
+}
+.faq-info .faq li p {
+    font-size: 0.9em;
+    padding-left: 1em;
+}
+.faq-info a {
+    padding: 0.7em 0.8em;
+}
+.faq-info .faq li p,.faq > li > a{
+    font-size: 0.87em;
+}
+.faq li {
+    margin-top: 0.5em;
+}
+}
+.products, .related-products, .login-page, .contact, .cart-items, .about, .faq-info, .codes {
+    padding: 2em 0;
+}
+.title-info {
+    margin-bottom: 4em;
+}
+.title-info {
+    margin-bottom: 3em;
+}
+.title-info p {
+    font-size: 0.9em;
+}
+.title-info {
+    margin-bottom: 2em;
+}
+.title-info p {
+    letter-spacing: 0px;
+}
+
+.title-info p {
+    font-size: 0.85em;
+}
+h3.title {
+    font-size: 2.2em;
+}
+.title-info {
+    margin-bottom: 1.5em;
+}
+
+h4.panel-title a {
+    font-size: 1.3em;
+    text-transform: capitalize;
+    color: #fff;
+    display: block;
+    text-decoration: none;
+    padding: .6em 1.5em;
+}
+.login-page h3.title1 {
+    text-align: center;
+    margin-bottom: 1em;
+}
+.codes h3.title1 {
+    margin-bottom: 0.5em;
+}
+h3.title {
+    font-size: 3.3em;
+}
+h3.title {
+    font-size: 3em;
+}
+h3.title {
+    font-size: 2.8em;
+}
+h3.title {
+    font-size: 2.5em;
+}
+.faq > li > a {
+    font-size: 0.9em;
+    line-height: 1.8em;
+}
+.faq-info .faq li p {
+    font-size: 0.9em;
+    padding-left: 1em;
+}
+.faq-info a {
+    padding: 0.7em 0.8em;
+}
+/*--faq--*/
+.faq li {
+    margin-top: 0.8em;
+    display: block;
+}
+.faq > li > a {
+    width: 100%;
+    display: block;
+    position: relative;
+    color: #000;
+    font-size: 1em;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.faq li a.active span {
+	-webkit-transform: rotatex(180deg);
+	transform: rotatex(180deg);
+	-moz-transform: rotatex(180deg);
+	-o-transform: rotatex(180deg);
+	-ms-transform: rotatex(180deg);
+}
+.faq ul li a {
+    line-height: 1.8em;
+    display: block;
+    position: relative;
+    font-size: 1em;
+    color: #000;
+    text-decoration: none;
+	font-weight: 400;
+    padding-left: 1.5em;
+}
+
+.faq span.glyphicon {
+    float: right;
+}
+/*--//faq--*/

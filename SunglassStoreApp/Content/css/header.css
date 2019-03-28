@@ -1,0 +1,37 @@
+.header-top {
+    background: #1565c0;
+	 padding: .7em 0;
+ }
+.top-left {
+    float: left; 
+}
+.top-left i {
+    font-size: 1em;
+    margin-left: 0.5em;
+}
+.top-left  a{
+    color: #fff;
+	font-size: 1em;
+    text-transform: capitalize;
+	text-decoration: none;
+	font-weight: 600;
+	font-family: 'Open Sans', sans-serif;
+}
+.top-right ul li {
+    display: inline-block;
+    padding: 0em 1em;
+}
+.top-right ul li a {
+    font-size: 1em;
+    text-transform: capitalize;
+    color:#fff;
+    text-decoration: none;
+	font-weight: 600;
+	font-family: 'Open Sans', sans-serif;
+}
+.top-right ul li.text a {
+	color:#fff;
+}
+.top-right {
+    float: right;
+}
