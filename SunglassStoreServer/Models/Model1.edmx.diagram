@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="80f0cd3c91994ec4b5e37a3ac5f8992c" Name="Diagram1">
+        <EntityTypeShape EntityType="SunglassBazarModel.Admin_Employee" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SunglassBazarModel.Admin_Login" Width="1.5" PointX="10" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SunglassBazarModel.Category" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SunglassBazarModel.Customer" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SunglassBazarModel.Order" Width="1.5" PointX="5.25" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SunglassBazarModel.OrderDetail" Width="1.5" PointX="7.5" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SunglassBazarModel.Payment" Width="1.5" PointX="3" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SunglassBazarModel.PaymentType" Width="1.5" PointX="0.75" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="SunglassBazarModel.Product" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="SunglassBazarModel.RecentlyView" Width="1.5" PointX="10.5" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SunglassBazarModel.Review" Width="1.5" PointX="7.5" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SunglassBazarModel.Role" Width="1.5" PointX="7.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SunglassBazarModel.ShippingDetail" Width="1.5" PointX="3" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SunglassBazarModel.SubCategory" Width="1.5" PointX="3" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SunglassBazarModel.Supplier" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="SunglassBazarModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SunglassBazarModel.Wishlist" Width="1.5" PointX="10.5" PointY="9.625" IsExpanded="true" />
+        <AssociationConnector Association="SunglassBazarModel.FK_Admin_Login_Admin_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="SunglassBazarModel.FK_Admin_Login_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="SunglassBazarModel.FK_Products_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="SunglassBazarModel.FK_SubCategory_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="SunglassBazarModel.FK_Order_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="SunglassBazarModel.FK_RecentlyViews_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="SunglassBazarModel.FK_Review_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="SunglassBazarModel.FK_Wishlist_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="SunglassBazarModel.FK_Order_Payment" ManuallyRouted="false" />
+        <AssociationConnector Association="SunglassBazarModel.FK_Order_ShippingDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="SunglassBazarModel.FK_OrderDetails_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="SunglassBazarModel.FK_OrderDetails_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="SunglassBazarModel.FK_Payment_PaymentType" ManuallyRouted="false" />
+        <AssociationConnector Association="SunglassBazarModel.FK_Products_SubCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="SunglassBazarModel.FK_Products_Suppliers" ManuallyRouted="false" />
+        <AssociationConnector Association="SunglassBazarModel.FK_RecentlyViews_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="SunglassBazarModel.FK_Review_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="SunglassBazarModel.FK_Wishlist_Products" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
