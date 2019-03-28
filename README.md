@@ -44,7 +44,7 @@
 <li><em><strong>Technologies:</strong></em>
 <ul>
 <li>C-Sharp, ASP.Net MVC, Web API</li>
-<li>Entity Framework Code First approach</li>
+<li>Entity Framework Database First approach</li>
 <li>HTML5, CSS3, Bootstrap, JavaScript/JQuery</li>
 <li>AngularJS, SignalR</li>
 <li>MS SQL Server-2012</li>
